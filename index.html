@@ -65,7 +65,7 @@
           </button>
           <form id="change-password" class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <div class="form-group">
-              <label for='old-password'>Old Password</label>
+              <label for="old-password">Old Password</label>
               <input type="password" name="passwords[old]" placeholder="Old Password">
             </div>
             <div class="form-group">
@@ -86,24 +86,36 @@
 
       </div>
       </nav>
+        <!-- END NAV BAR -->
 
-      <!--<div class="sign-up">
-        <form id="sign-up">
+      <div class="container">
+        <form>
+          <h4>ADD A BOOK</h4>
           <div class="form-group">
-            <label for='sign-up-email'>Email address</label>
-            <input type="text" name="credentials[email]" placeholder="E-Mail">
+            <label for="book-title">Book Title</label>
+            <input type="text" class="form-control" id="book-title" placeholder="Book Title">
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="credentials[password]" placeholder="Password">
+            <label for="author-last-name">Author Last Name</label>
+            <input type="text" class="form-control" id="author-last-name" placeholder="Author's Last Name">
           </div>
           <div class="form-group">
-            <label for="password confirmation">Password Confirmation</label>
-            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+            <label for="author-first-name">Author First Name</label>
+            <input type="text" class="form-control" id="author-first-name" placeholder="Author's First Name">
           </div>
-          <button type="submit" name="submit" class="sign-up-button">Submit</button>
+          <div class="form-group">
+            <label for="book-genre">Book Genre</label>
+            <input type="text" class="form-control" id="book-genre" placeholder="Genre">
+          </div>
+          <div class="form-group">
+            <label for="book-rating">Book Rating</label>
+            <input type="text" class="form-control" id="book-rating" placeholder="Rate This Book">
+          </div>
+          <button type="submit" class="btn btn-secondary">Submit</button>
         </form>
-      </div> -->
+      </div>
+
+
 
     </body>
 </html>
