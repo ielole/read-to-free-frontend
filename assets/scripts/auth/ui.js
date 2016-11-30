@@ -1,5 +1,5 @@
 'use strict';
-// const store = require('../store.js');
+const store = require('../store.js');
 
 const success = () => {
   console.log('success');
@@ -20,14 +20,49 @@ const failure = () => {
   console.log('Oops, try again.');
 };
 
+const signInSuccess = (data) => {
+  store.user = data.user;
+  success(data);
+  console.log("You've successfully signed in!");
+  $(".signed-in").show();
+  $(".signed-out").hide();
+  $("#sign-in").trigger("reset");
+  };
+
+const signInFailure = () => {
+  console.log("Oops, something went wrong. Try signing in again.");
+  $("#sign-in").trigger("reset");
+  };
+
+const changePasswordSuccess = () => {
+  console.log("Congrats! You've successfully changed your password.");
+  $("#change-password").trigger("reset");
+  $("change-password").hide();
+};
+
+const changePasswordFailure = () => {
+  console.log("Oops, something went wrong. Try changing your password again.");
+  $("#change-password").trigger("reset");
+  $("#change-password").hide();
+};
+
+const signOutSuccess = (data) => {
+  success(data);
+  console.log("You've successfully signed out!");
+  // $("#sign-out").hide();
+  $('.signed-in').hide();
+  $('.signed-out').show();
+};
+
+
 module.exports = {
   failure,
   success,
   signUpSuccess,
   signUpFailure,
-  // signInSuccess,
-  // signInFailure,
-  // changePasswordSuccess,
-  // changePasswordFailure,
-  // signOutSuccess,
+  signInSuccess,
+  signInFailure,
+  changePasswordSuccess,
+  changePasswordFailure,
+  signOutSuccess
 };
