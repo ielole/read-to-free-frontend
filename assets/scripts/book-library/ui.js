@@ -10,7 +10,17 @@ const addBookFailure = (data) => {
   console.log(data);
 };
 
+const success = (data) => {
+  console.log(data);
+};
+
+const failure = (error) => {
+  console.log(error);
+};
+
 module.export = {
+  success,
+  failure,
   addBookSuccess,
   addBookFailure,
 };

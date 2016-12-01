@@ -1,121 +1,127 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Read to Free</title>
 
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" type="text/x-scss" href="assets/styles/index.scss">
-      <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
+<head>
+  <title>Read to Free</title>
 
-      <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/x-scss" href="assets/styles/index.scss">
+  <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
-          <div class="dropdown display-inline">
-            <button class="btn btn-default dropdown-toggle signed-out" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+<body>
+
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+
+      <div class="dropdown display-inline">
+        <button class="btn btn-default dropdown-toggle signed-out" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               Sign Up
               <!-- <span class="caret"></span> -->
            </button>
-            <form id="sign-up" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <div class="form-group">
-                <label for='sign-up-email'>Email address</label>
-                <input type="text" name="credentials[email]" placeholder="E-Mail">
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="credentials[password]" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <label for="password confirmation">Password Confirmation</label>
-                <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-              </div>
-              <button type="submit" name="submit" class="sign-up-button">Submit</button>
-            </form>
-        </div>
-
-          <div class="dropdown display-inline">
-            <button class="btn btn-default dropdown-toggle signed-out" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              Sign In
-              <!-- <span class="caret"></span> -->
-            </button>
-          <form id="sign-in" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <div class="form-group">
-              <label for="sign-up-email">Email address</label>
-              <input type="email" name="credentials[email]" placeholder="E-Mail">
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" name="credentials[password]" placeholder="Password">
-            </div>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox"> Remember me
-              </label>
-            </div>
-            <button type="submit" class="sign-in-button">Sign in</button>
-          </form>
-        </div>
-
-        <div class="dropdown display-inline">
-          <button class="btn btn-default dropdown-toggle signed-in" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Change Password
-            <!-- <span class="caret"></span> -->
-          </button>
-          <form id="change-password" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <div class="form-group">
-              <label for="old-password">Old Password</label>
-              <input type="password" name="passwords[old]" placeholder="Old Password">
-            </div>
-            <div class="form-group">
-              <label for="new-password">New Password</label>
-              <input type="password" name="passwords[new]" placeholder="New Password">
-            </div>
-            <button type="submit" name="submit" class="change-password-button">Submit</button>
-          </form>
-        </div>
-
-         <div class="display-inline">
-        <form id="sign-out">
+        <form id="sign-up" class="dropdown-menu" aria-labelledby="dropdownMenu1">
           <div class="form-group">
-          </div>
-            <button type="submit" name="submit"  class="sign-out-button btn btn-default signed-in">Sign Out</button>
-       </form>
-      </div>
-
-      </div>
-      </nav>
-        <!-- END NAV BAR -->
-
-      <div class="container">
-        <form id="add-a-book">
-          <h4>ADD A BOOK</h4>
-          <div class="form-group">
-            <label for="book-title">Book Title</label>
-            <input type="text" class="form-control" id="book-title" placeholder="Book Title">
+            <label for='sign-up-email'>Email address</label>
+            <input type="text" name="credentials[email]" placeholder="E-Mail">
           </div>
           <div class="form-group">
-            <label for="author-last-name">Author Last Name</label>
-            <input type="text" class="form-control" id="author-last-name" placeholder="Author's Last Name">
+            <label for="password">Password</label>
+            <input type="password" name="credentials[password]" placeholder="Password">
           </div>
           <div class="form-group">
-            <label for="author-first-name">Author First Name</label>
-            <input type="text" class="form-control" id="author-first-name" placeholder="Author's First Name">
+            <label for="password confirmation">Password Confirmation</label>
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
           </div>
-          <div class="form-group">
-            <label for="book-genre">Book Genre</label>
-            <input type="text" class="form-control" id="book-genre" placeholder="Genre">
-          </div>
-          <div class="form-group">
-            <label for="book-rating">Book Rating</label>
-            <input type="text" class="form-control" id="book-rating" placeholder="Rate This Book">
-          </div>
-          <button type="submit" class="btn btn-secondary">Submit</button>
+          <button type="submit" name="submit" class="sign-up-button">Submit</button>
         </form>
       </div>
 
+      <div class="dropdown display-inline">
+        <button class="btn btn-default dropdown-toggle signed-out" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Sign In
+              <!-- <span class="caret"></span> -->
+            </button>
+        <form id="sign-in" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <div class="form-group">
+            <label for="sign-up-email">Email address</label>
+            <input type="email" name="credentials[email]" placeholder="E-Mail">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="credentials[password]" placeholder="Password">
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox"> Remember me
+              </label>
+          </div>
+          <button type="submit" class="sign-in-button">Sign in</button>
+        </form>
+      </div>
+
+      <div class="dropdown display-inline">
+        <button class="btn btn-default dropdown-toggle signed-in" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Change Password
+            <!-- <span class="caret"></span> -->
+          </button>
+        <form id="change-password" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <div class="form-group">
+            <label for="old-password">Old Password</label>
+            <input type="password" name="passwords[old]" placeholder="Old Password">
+          </div>
+          <div class="form-group">
+            <label for="new-password">New Password</label>
+            <input type="password" name="passwords[new]" placeholder="New Password">
+          </div>
+          <button type="submit" name="submit" class="change-password-button">Submit</button>
+        </form>
+      </div>
+
+      <div class="display-inline">
+        <form id="sign-out">
+          <div class="form-group">
+          </div>
+          <button type="submit" name="submit" class="sign-out-button btn btn-default signed-in">Sign Out</button>
+        </form>
+      </div>
+
+    </div>
+  </nav>
+  <!-- END NAV BAR -->
+
+  <div class="container one-book">
+    <form id="add-a-book">
+      <h4>ADD A BOOK</h4>
+      <div class="form-group">
+        <label for="book-title">Book Title</label>
+        <input type="text" class="form-control" id="book-title" placeholder="Book Title">
+      </div>
+      <div class="form-group">
+        <label for="author-last-name">Author Last Name</label>
+        <input type="text" class="form-control" id="author-last-name" placeholder="Author's Last Name">
+      </div>
+      <div class="form-group">
+        <label for="author-first-name">Author First Name</label>
+        <input type="text" class="form-control" id="author-first-name" placeholder="Author's First Name">
+      </div>
+      <div class="form-group">
+        <label for="book-genre">Book Genre</label>
+        <input type="text" class="form-control" id="book-genre" placeholder="Genre">
+      </div>
+      <div class="form-group">
+        <label for="book-rating">Book Rating</label>
+        <input type="text" class="form-control" id="book-rating" placeholder="Rate This Book">
+      </div>
+      <button type="submit" class="btn btn-secondary">Hello</button>
+    </form>
+  </div>
+
+  <div class="get-all-books">
+    <button type="button" id="get-books" class="btn btn-secondary">View BookShelf</button>
+  </div>
 
 
-    </body>
+</body>
+
 </html>

@@ -1,7 +1,7 @@
 'use strict';
 
 const config = require('../config.js');
-// const store = require('../store.js');
+const store = require('../store.js');
 
 const addBook = (data) =>
     $.ajax ({
@@ -10,8 +10,17 @@ const addBook = (data) =>
     data,
   });
 
+  const getIndex = () =>
+      $.ajax ({
+      url: config.host + '/books',
+      method: 'GET',
+      headers: {
+        Authorization: 'Token token=' + store.user.token
+      }
+    });
 
   module.exports = {
     addBook,
+    getIndex,
 
 };
