@@ -5,9 +5,9 @@ const addBookSuccess = (data) => {
   console.log(data);
 };
 
-const addBookFailure = (data) => {
+const addBookFailure = (error) => {
   console.log("Oops, something went wrong.");
-  console.log(data);
+  console.log(error);
 };
 
 const success = (data) => {

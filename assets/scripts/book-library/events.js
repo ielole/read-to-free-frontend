@@ -8,7 +8,8 @@ const ui = require('./ui.js');
 const onAddBook = function(event) {
   let data = getFormFields(this);
   event.preventDefault();
-  console.log(data);
+  // console.log('this is ', this)
+  // console.log('data is ', data);
   api.addBook(data)
     .then(ui.addBookSuccess)
     .catch(ui.addBookFailure);
