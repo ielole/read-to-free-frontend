@@ -11,6 +11,8 @@ const addBookFailure = (data) => {
 };
 
 const success = (data) => {
+  console.log('YAY!!!!');
+  $('.show-books').html('Are you there?');
   console.log(data);
 };
 
@@ -18,7 +20,7 @@ const failure = (error) => {
   console.log(error);
 };
 
-module.export = {
+module.exports = {
   success,
   failure,
   addBookSuccess,

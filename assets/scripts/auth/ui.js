@@ -24,6 +24,7 @@ const signInSuccess = (data) => {
   store.user = data.user;
   success(data);
   console.log("You've successfully signed in!");
+  console.log(data);
   $(".signed-in").show();
   $(".signed-out").hide();
   $("#sign-in").trigger("reset");

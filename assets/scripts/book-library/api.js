@@ -5,17 +5,20 @@ const store = require('../store.js');
 
 const addBook = (data) =>
     $.ajax ({
-    url: config.host + '/add-book',
+    url: config.host + '/books',
     method: 'POST',
     data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+      }
   });
 
-  const getIndex = () =>
-      $.ajax ({
-      url: config.host + '/books',
-      method: 'GET',
-      headers: {
-        Authorization: 'Token token=' + store.user.token
+const getIndex = () =>
+    $.ajax ({
+    url: config.host + '/books',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
       }
     });
 
