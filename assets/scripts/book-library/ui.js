@@ -1,5 +1,13 @@
 'use strict';
 
+const showBooksTemplate = require('../handlebar-templates/display-select-book.handlebars');
+// const showTitlesTemplate = require('../templates/book-titles.handlebars');
+
+// const getBooksSuccess = (books) => {
+// console.log("books is ", books);
+// $('#content').html(showBooksTemplate(books));
+// };
+
 const addBookSuccess = (data) => {
   console.log("You've added a book!");
   console.log(data);
@@ -8,6 +16,12 @@ const addBookSuccess = (data) => {
 const addBookFailure = (error) => {
   console.log("Oops, something went wrong.");
   console.log(error);
+};
+
+const getBooksSuccess = (data) => {
+  console.log("YaY!");
+  $('#show-books').html(showBooksTemplate(data));
+  console.log(data);
 };
 
 const success = (data) => {
@@ -44,6 +58,7 @@ const addReviewFailure = (error) => {
 module.exports = {
   success,
   failure,
+  getBooksSuccess,
   addBookSuccess,
   addBookFailure,
   getReviewsSuccess,

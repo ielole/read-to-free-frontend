@@ -1,0 +1,11 @@
+{{#each books as |book|}}
+<div>
+  <hr>
+  <h1> <small>{{book.title}} by {{book.author_first_name}} {{book.author_last_name}}
+  <br>
+    Book id: {{book.id}}
+  </small></h1>
+  <button type="button" class="btn btn-secondary">Add book to your bookshelf</button>
+  <hr>
+</div>
+{{/each}}

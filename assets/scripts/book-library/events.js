@@ -18,19 +18,19 @@ const onAddBook = function(event) {
 const onGetBooks = function() {
   // console.log('bad mood');
   api.getIndex()
-    .then(ui.success)
+    .then(ui.getBooksSuccess)
     .catch(ui.failure);
 };
 
 const onGetReviews = function() {
-  console.log('maine house');
+  // console.log('maine house');
   api.getReviews()
     .then(ui.getReviewsSuccess)
     .catch(ui.getReviewsFailure);
 };
 
 const onAddReview = function(event) {
-  console.log('so tired');
+  // console.log('so tired');
   let data = getFormFields(this);
   event.preventDefault();
   api.addReview(data)
