@@ -30,6 +30,17 @@ const getReviewsFailure = (error) => {
   console.log(error);
 };
 
+const addReviewSuccess = (data) => {
+  console.log("You've added a review!");
+  console.log(data);
+};
+
+const addReviewFailure = (error) => {
+  console.log("Oops, something went wrong. No, review.");
+  console.log(error);
+};
+
+
 module.exports = {
   success,
   failure,
@@ -37,4 +48,6 @@ module.exports = {
   addBookFailure,
   getReviewsSuccess,
   getReviewsFailure,
+  addReviewSuccess,
+  addReviewFailure
 };

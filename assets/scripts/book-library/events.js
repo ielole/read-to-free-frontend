@@ -29,10 +29,20 @@ const onGetReviews = function() {
     .catch(ui.getReviewsFailure);
 };
 
+const onAddReview = function(event) {
+  console.log('so tired');
+  let data = getFormFields(this);
+  event.preventDefault();
+  api.addReview(data)
+    .then(ui.addReviewSuccess)
+    .catch(ui.addReviewFailure);
+};
+
 const addBookHandlers = () => {
 $("#add-a-book").on('submit', onAddBook);
 $("#get-books").on('click', onGetBooks);
 $("#get-reviews").on('click', onGetReviews);
+$("#add-a-review").on('submit', onAddReview);
 };
 
 module.exports = {

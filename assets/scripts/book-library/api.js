@@ -31,9 +31,20 @@ const getReviews = () =>
       }
     });
 
+const addReview = (data) =>
+    $.ajax ({
+    url: config.host + '/reviews',
+    method: 'POST',
+    data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+      }
+  });
+
   module.exports = {
     addBook,
     getIndex,
     getReviews,
+    addReview,
 
 };
