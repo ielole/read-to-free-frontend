@@ -22,9 +22,17 @@ const onGetBooks = function() {
     .catch(ui.failure);
 };
 
+const onGetReviews = function() {
+  console.log('maine house');
+  api.getReviews()
+    .then(ui.getReviewsSuccess)
+    .catch(ui.getReviewsFailure);
+};
+
 const addBookHandlers = () => {
 $("#add-a-book").on('submit', onAddBook);
 $("#get-books").on('click', onGetBooks);
+$("#get-reviews").on('click', onGetReviews);
 };
 
 module.exports = {

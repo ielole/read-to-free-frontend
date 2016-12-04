@@ -90,8 +90,12 @@
   </nav>
   <!-- END NAV BAR -->
 
-  <div class="container one-book">
-    <form id="add-a-book">
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle signed-in" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Add Book
+        <!-- <span class="caret"></span> -->
+    </button>
+    <form id="add-a-book" class="dropdown-menu one-book" aria-labelledby="dropdownMenu1">
       <h4>ADD A BOOK</h4>
       <div class="form-group">
         <label for="book-title">Book Title</label>
@@ -105,25 +109,29 @@
         <label for="author-first-name">Author First Name</label>
         <input type="text" class="form-control" id="author-first-name" name="book[author_first_name]" placeholder="Author's First Name">
       </div>
-      <div class="form-group">
+      <!--<div class="form-group">
         <label for="book-genre">Book Genre</label>
         <input type="text" class="form-control" id="book-genre" name="book[genre]" placeholder="Genre">
       </div>
       <div class="form-group">
         <label for="book-rating">Book Rating</label>
         <input type="text" class="form-control" id="book-rating" name="book[rating]" placeholder="Rate This Book">
-      </div>
-      <button type="submit" class="btn btn-secondary">Add Book</button>
+      </div> -->
+      <button type="submit" class="btn btn-secondary">Submit</button>
     </form>
   </div>
 
   <div class="get-all-books">
-    <button type="button" id="get-books" class="btn btn-secondary">View BookShelf</button>
+    <button type="button" id="get-books" class="btn btn-secondary">See books you can add to your bookshelf</button>
     <div class="show-books">
     </div>
   </div>
 
-
+  <div class="view-reviews">
+    <button type="button" id="get-reviews" class="btn btn-secondary">View bookshelf</button>
+    <div class="show-reviews">
+    </div>
+  </div>
 </body>
 
 </html>

@@ -22,8 +22,18 @@ const getIndex = () =>
       }
     });
 
+const getReviews = () =>
+    $.ajax ({
+    url: config.host + '/reviews',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+      }
+    });
+
   module.exports = {
     addBook,
     getIndex,
+    getReviews,
 
 };

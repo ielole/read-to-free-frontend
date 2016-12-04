@@ -20,9 +20,21 @@ const failure = (error) => {
   console.log(error);
 };
 
+const getReviewsSuccess = (data) => {
+  console.log("These are your reviews/ books on your bookshelf");
+  console.log(data);
+};
+
+const getReviewsFailure = (error) => {
+  console.log("No reviews for YOU!");
+  console.log(error);
+};
+
 module.exports = {
   success,
   failure,
   addBookSuccess,
   addBookFailure,
+  getReviewsSuccess,
+  getReviewsFailure,
 };
