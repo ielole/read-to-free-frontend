@@ -1,12 +1,20 @@
 {{#each reviews as |review|}}
 <div>
   <hr>
-  <h1> <small>{{review.comment}} {{review.rating}}
-  </small></h1>
-  <button type="button" class="btn btn-secondary">Delete this book from your bookshelf</button>
+  <h2><small>{{review.book.title}} by {{review.book.author_first_name}} {{review.book.author_last_name}} </small></h2>
+  <h3><small>
+    <strong>Comments About the Book:</strong>
+    <br>
+    {{review.comment}}
+    <br>
+    Book rating: {{review.rating}}
+  </small></h3>
   <button class='delete-review' data-id={{review.id}}>
       Delete Review {{review.id}}
-    </button>
+  </button>
+  <button class='update-review' data-id={{review.id}}>
+      Update Review {{review.id}}
+  </button>
   <hr>
 </div>
 {{/each}}

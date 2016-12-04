@@ -64,6 +64,17 @@ const deleteReviewFailure = () => {
   console.log("Something went wrong, bookshelf still has book.");
 };
 
+const getOneReviewSuccess = (data) => {
+  console.log("You've updated a book on your bookshelf!");
+  console.log(data);
+};
+
+const getOneReviewFailure = (error) => {
+  console.log("Something went wrong, book not updated.");
+  console.log(error);
+};
+
+
 module.exports = {
   success,
   failure,
@@ -75,5 +86,7 @@ module.exports = {
   addReviewSuccess,
   addReviewFailure,
   deleteReviewSuccess,
-  deleteReviewFailure
+  deleteReviewFailure,
+  getOneReviewSuccess,
+  getOneReviewFailure
 };

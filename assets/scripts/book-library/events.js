@@ -15,12 +15,7 @@ const onAddBook = function(event) {
     .catch(ui.addBookFailure);
 };
 
-const onGetBooks = function() {
-  // console.log('bad mood');
-  api.getIndex()
-    .then(ui.getBooksSuccess)
-    .catch(ui.failure);
-};
+
 
 const onDeleteReview = function(event) {
   // console.log('do you do what i think you do?');
@@ -34,12 +29,23 @@ const onDeleteReview = function(event) {
     .catch(ui.deleteReviewFailure);
 };
 
+const onGetOneReview = function(event) {
+  console.log('Sunday sunday sunday!');
+  event.preventDefault();
+  let reviewId = event.target.getAttribute('data-id');
+  api.getOneReview(reviewId)
+    .then(ui.getOneReviewSuccess)
+    .catch(ui.getOneReviewFailure);
+};
+
+
 const onGetReviews = function() {
   // console.log('maine house');
   api.getReviews()
     .then(ui.getReviewsSuccess)
     .then(function(){
       $('.delete-review').on('click', onDeleteReview);
+      $('.update-review').on('click', onGetOneReview);
     })
     .catch(ui.getReviewsFailure);
 };
@@ -53,6 +59,15 @@ const onAddReview = function(event) {
     .catch(ui.addReviewFailure);
 };
 
+const onGetBooks = function() {
+  // console.log('bad mood');
+  api.getIndex()
+    .then(ui.getBooksSuccess)
+    .then(function(){
+      $('.show-me-review-modal').on('click', onAddReview);
+    })
+    .catch(ui.failure);
+};
 
 
 
@@ -61,6 +76,7 @@ $("#add-a-book").on('submit', onAddBook);
 $("#get-books").on('click', onGetBooks);
 $("#get-reviews").on('click', onGetReviews);
 $("#add-a-review").on('submit', onAddReview);
+$("#one-review").on('click', onGetOneReview);
 };
 
 module.exports = {

@@ -51,11 +51,21 @@ const addReview = (data) =>
       }
     });
 
+const getOneReview = (reviewId) =>
+    $.ajax ({
+    url: config.host + '/reviews/' + reviewId,
+    method: 'GET',
+    headers: {
+    Authorization: 'Token token=' + store.user.token,
+    }
+  });
+
   module.exports = {
     addBook,
     getIndex,
     getReviews,
     addReview,
     deleteReview,
+    getOneReview,
 
 };
