@@ -211,7 +211,7 @@ webpackJsonp([0],[
 	'use strict';
 
 	var config = {
-	  host: 'http://localhost:4741'
+	  host: 'https://read-to-free.herokuapp.com/'
 	  // need to put http:// in front, even with localhost or you get a cross origins request error
 	};
 
