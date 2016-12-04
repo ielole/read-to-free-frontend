@@ -41,10 +41,21 @@ const addReview = (data) =>
       }
   });
 
+
+  const deleteReview = (reviewId) =>
+      $.ajax ({
+      url: config.host + '/reviews/' + reviewId,
+      method: 'DELETE',
+      headers: {
+      Authorization: 'Token token=' + store.user.token,
+      }
+    });
+
   module.exports = {
     addBook,
     getIndex,
     getReviews,
     addReview,
+    deleteReview,
 
 };

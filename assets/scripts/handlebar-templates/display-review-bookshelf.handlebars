@@ -1,0 +1,12 @@
+{{#each reviews as |review|}}
+<div>
+  <hr>
+  <h1> <small>{{review.comment}} {{review.rating}}
+  </small></h1>
+  <button type="button" class="btn btn-secondary">Delete this book from your bookshelf</button>
+  <button class='delete-review' data-id={{review.id}}>
+      Delete Review {{review.id}}
+    </button>
+  <hr>
+</div>
+{{/each}}

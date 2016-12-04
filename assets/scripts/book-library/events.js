@@ -22,10 +22,25 @@ const onGetBooks = function() {
     .catch(ui.failure);
 };
 
+const onDeleteReview = function(event) {
+  // console.log('do you do what i think you do?');
+  // let data = getFormFields(this);
+  event.preventDefault();
+  // console.log("event.target is", event.target);
+  // console.log("event is ", event);
+  let reviewId = event.target.getAttribute('data-id');
+  api.deleteReview(reviewId)
+    .then(ui.deleteReviewSuccess)
+    .catch(ui.deleteReviewFailure);
+};
+
 const onGetReviews = function() {
   // console.log('maine house');
   api.getReviews()
     .then(ui.getReviewsSuccess)
+    .then(function(){
+      $('.delete-review').on('click', onDeleteReview);
+    })
     .catch(ui.getReviewsFailure);
 };
 
@@ -37,6 +52,9 @@ const onAddReview = function(event) {
     .then(ui.addReviewSuccess)
     .catch(ui.addReviewFailure);
 };
+
+
+
 
 const addBookHandlers = () => {
 $("#add-a-book").on('submit', onAddBook);

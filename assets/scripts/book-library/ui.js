@@ -2,6 +2,7 @@
 
 const showBooksTemplate = require('../handlebar-templates/display-select-book.handlebars');
 // const showTitlesTemplate = require('../templates/book-titles.handlebars');
+const showReviewsTemplate = require('../handlebar-templates/display-review-bookshelf.handlebars');
 
 // const getBooksSuccess = (books) => {
 // console.log("books is ", books);
@@ -36,6 +37,7 @@ const failure = (error) => {
 
 const getReviewsSuccess = (data) => {
   console.log("These are your reviews/ books on your bookshelf");
+  $('#show-reviews').html(showReviewsTemplate(data));
   console.log(data);
 };
 
@@ -54,6 +56,13 @@ const addReviewFailure = (error) => {
   console.log(error);
 };
 
+const deleteReviewSuccess = () => {
+  console.log("You've removed a book from your bookshelf!");
+};
+
+const deleteReviewFailure = () => {
+  console.log("Something went wrong, bookshelf still has book.");
+};
 
 module.exports = {
   success,
@@ -64,5 +73,7 @@ module.exports = {
   getReviewsSuccess,
   getReviewsFailure,
   addReviewSuccess,
-  addReviewFailure
+  addReviewFailure,
+  deleteReviewSuccess,
+  deleteReviewFailure
 };
