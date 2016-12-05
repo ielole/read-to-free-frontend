@@ -15,17 +15,57 @@ const onAddBook = function(event) {
     .catch(ui.addBookFailure);
 };
 
-const onGetBooks = function() {
-  // console.log('bad mood');
-  api.getIndex()
-    .then(ui.getBooksSuccess)
-    .catch(ui.failure);
+
+
+const onDeleteReview = function(event) {
+  // console.log('do you do what i think you do?');
+  // let data = getFormFields(this);
+  event.preventDefault();
+  // console.log("event.target is", event.target);
+  // console.log("event is ", event);
+  let reviewId = event.target.getAttribute('data-id');
+  api.deleteReview(reviewId)
+    .then(ui.deleteReviewSuccess)
+    .catch(ui.deleteReviewFailure);
+};
+
+const onGetOneReview = function(event) {
+  console.log('Sunday sunday sunday!');
+  event.preventDefault();
+  let reviewId = event.target.getAttribute('data-id');
+  api.getOneReview(reviewId)
+    .then(ui.getOneReviewSuccess)
+    .catch(ui.getOneReviewFailure);
+};
+
+const onUpdateOneReview = function(event) {
+  let reviewId = event.target.getAttribute('data-id');
+  let data = getFormFields(this);
+  event.preventDefault();
+  console.log('I\'m so fancy!');
+  console.log(reviewId, data);
+  api.updateOneReview(reviewId, data);
+    // .then(ui.updateOneReviewSuccess)
+    // .catch(ui.updateOneReviewFailure);
 };
 
 const onGetReviews = function() {
   // console.log('maine house');
   api.getReviews()
     .then(ui.getReviewsSuccess)
+    .then(function() {
+      $('.delete-review').on('click', onDeleteReview);
+      $('.update-review').on('click', onGetOneReview);
+      $('#update-a-review').on('submit', onUpdateOneReview);
+      // $("#prospects_form").submit(function(e) {
+    // e.preventDefault();
+// });
+    //   $('#update-a-review').submit(function(event)) {
+    //     onUpdateOneReview($(this));
+    //     event.preventDefault();
+    //   }
+    // );
+  })
     .catch(ui.getReviewsFailure);
 };
 
@@ -38,11 +78,24 @@ const onAddReview = function(event) {
     .catch(ui.addReviewFailure);
 };
 
+const onGetBooks = function() {
+  // console.log('bad mood');
+  api.getIndex()
+    .then(ui.getBooksSuccess)
+    .then(function(){
+      $('.show-me-review-modal').on('click', onAddReview);
+    })
+    .catch(ui.failure);
+};
+
+
+
 const addBookHandlers = () => {
 $("#add-a-book").on('submit', onAddBook);
 $("#get-books").on('click', onGetBooks);
 $("#get-reviews").on('click', onGetReviews);
 $("#add-a-review").on('submit', onAddReview);
+// $("#one-review").on('click', onGetOneReview);
 };
 
 module.exports = {

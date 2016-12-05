@@ -1,12 +1,11 @@
 'use strict';
 
 const showBooksTemplate = require('../handlebar-templates/display-select-book.handlebars');
-// const showTitlesTemplate = require('../templates/book-titles.handlebars');
 
-// const getBooksSuccess = (books) => {
-// console.log("books is ", books);
-// $('#content').html(showBooksTemplate(books));
-// };
+const showReviewsTemplate = require('../handlebar-templates/display-review-bookshelf.handlebars');
+
+// const updateReviewTemplate = require('../handlebar-templates/display-update-form.handlebars');
+
 
 const addBookSuccess = (data) => {
   console.log("You've added a book!");
@@ -36,6 +35,7 @@ const failure = (error) => {
 
 const getReviewsSuccess = (data) => {
   console.log("These are your reviews/ books on your bookshelf");
+  $('#show-reviews').html(showReviewsTemplate(data));
   console.log(data);
 };
 
@@ -54,6 +54,25 @@ const addReviewFailure = (error) => {
   console.log(error);
 };
 
+const deleteReviewSuccess = () => {
+  console.log("You've removed a book from your bookshelf!");
+};
+
+const deleteReviewFailure = () => {
+  console.log("Something went wrong, bookshelf still has book.");
+};
+
+const getOneReviewSuccess = (data) => {
+  console.log("You've updated a book on your bookshelf!");
+  // $('#update-this-review').html(updateReviewTemplate(data));
+  console.log('this is one review', data);
+};
+
+const getOneReviewFailure = (error) => {
+  console.log("Something went wrong, book not updated.");
+  console.log(error);
+};
+
 
 module.exports = {
   success,
@@ -64,5 +83,9 @@ module.exports = {
   getReviewsSuccess,
   getReviewsFailure,
   addReviewSuccess,
-  addReviewFailure
+  addReviewFailure,
+  deleteReviewSuccess,
+  deleteReviewFailure,
+  getOneReviewSuccess,
+  getOneReviewFailure
 };
