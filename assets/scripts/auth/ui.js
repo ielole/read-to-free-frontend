@@ -27,6 +27,7 @@ const signInSuccess = (data) => {
   console.log(data);
   $(".signed-in").show();
   $(".signed-out").hide();
+  // $("#sign-in").hide();
   $("#sign-in").trigger("reset");
   };
 
@@ -38,13 +39,13 @@ const signInFailure = () => {
 const changePasswordSuccess = () => {
   console.log("Congrats! You've successfully changed your password.");
   $("#change-password").trigger("reset");
-  $("change-password").hide();
+  // $("#change-password").hide();
 };
 
 const changePasswordFailure = () => {
   console.log("Oops, something went wrong. Try changing your password again.");
   $("#change-password").trigger("reset");
-  $("#change-password").hide();
+  // $("#change-password").hide();
 };
 
 const signOutSuccess = (data) => {
@@ -53,6 +54,7 @@ const signOutSuccess = (data) => {
   // $("#sign-out").hide();
   $('.signed-in').hide();
   $('.signed-out').show();
+  // $("#sign-in").show();
 };
 
 

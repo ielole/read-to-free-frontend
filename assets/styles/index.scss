@@ -11,6 +11,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 .display-inline {
   display: inline;
+  float: left;
 }
 
 .signed-in {
@@ -23,11 +24,29 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   width: 300px;
 }
 
-.get-all-books {
+.middle {
   text-align: center;
+  margin: 1em;
 }
 
 .center {
   margin: auto;
   text-align: center;
+}
+
+.whose-id {
+  padding: 1em;
+  width: 50%;
+}
+
+.view-reviews {
+  display: none;
+}
+
+.sign-out {
+  text-align: center;
+}
+
+.dropdown-menu {
+  padding: 1em;
 }
