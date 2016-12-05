@@ -38,15 +38,34 @@ const onGetOneReview = function(event) {
     .catch(ui.getOneReviewFailure);
 };
 
+const onUpdateOneReview = function(event) {
+  let reviewId = event.target.getAttribute('data-id');
+  let data = getFormFields(this);
+  event.preventDefault();
+  console.log('I\'m so fancy!');
+  console.log(reviewId, data);
+  api.updateOneReview(reviewId, data);
+    // .then(ui.updateOneReviewSuccess)
+    // .catch(ui.updateOneReviewFailure);
+};
 
 const onGetReviews = function() {
   // console.log('maine house');
   api.getReviews()
     .then(ui.getReviewsSuccess)
-    .then(function(){
+    .then(function() {
       $('.delete-review').on('click', onDeleteReview);
       $('.update-review').on('click', onGetOneReview);
-    })
+      $('#update-a-review').on('submit', onUpdateOneReview);
+      // $("#prospects_form").submit(function(e) {
+    // e.preventDefault();
+// });
+    //   $('#update-a-review').submit(function(event)) {
+    //     onUpdateOneReview($(this));
+    //     event.preventDefault();
+    //   }
+    // );
+  })
     .catch(ui.getReviewsFailure);
 };
 
@@ -76,7 +95,7 @@ $("#add-a-book").on('submit', onAddBook);
 $("#get-books").on('click', onGetBooks);
 $("#get-reviews").on('click', onGetReviews);
 $("#add-a-review").on('submit', onAddReview);
-$("#one-review").on('click', onGetOneReview);
+// $("#one-review").on('click', onGetOneReview);
 };
 
 module.exports = {

@@ -42,19 +42,29 @@ const addReview = (data) =>
   });
 
 
-  const deleteReview = (reviewId) =>
-      $.ajax ({
-      url: config.host + '/reviews/' + reviewId,
-      method: 'DELETE',
-      headers: {
-      Authorization: 'Token token=' + store.user.token,
-      }
-    });
+const deleteReview = (reviewId) =>
+    $.ajax ({
+    url: config.host + '/reviews/' + reviewId,
+    method: 'DELETE',
+    headers: {
+    Authorization: 'Token token=' + store.user.token,
+    }
+  });
 
 const getOneReview = (reviewId) =>
     $.ajax ({
     url: config.host + '/reviews/' + reviewId,
     method: 'GET',
+    headers: {
+    Authorization: 'Token token=' + store.user.token,
+    }
+  });
+
+const updateOneReview = (reviewId, data) =>
+    $.ajax ({
+    url: config.host + '/reviews/' + reviewId,
+    method: 'PATCH',
+    data,
     headers: {
     Authorization: 'Token token=' + store.user.token,
     }
@@ -67,5 +77,6 @@ const getOneReview = (reviewId) =>
     addReview,
     deleteReview,
     getOneReview,
+    updateOneReview,
 
 };

@@ -15,8 +15,8 @@
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
 
-      <div class="dropdown display-inline">
-        <button class="btn btn-default dropdown-toggle signed-out" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <div class="dropdown display-inline signed-out">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               Sign Up
               <!-- <span class="caret"></span> -->
            </button>
@@ -30,15 +30,15 @@
             <input type="password" name="credentials[password]" placeholder="Password">
           </div>
           <div class="form-group">
-            <label for="password confirmation">Password Confirmation</label>
+            <label for="password confirmation">Password</label>
             <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
           </div>
           <button type="submit" name="submit" class="sign-up-button">Submit</button>
         </form>
       </div>
 
-      <div class="dropdown display-inline">
-        <button class="btn btn-default dropdown-toggle signed-out" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <div class="dropdown display-inline signed-out">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               Sign In
               <!-- <span class="caret"></span> -->
             </button>
@@ -60,8 +60,8 @@
         </form>
       </div>
 
-      <div class="dropdown display-inline">
-        <button class="btn btn-default dropdown-toggle signed-in" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <div class="dropdown display-inline signed-in">
+        <button class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Change Password
             <!-- <span class="caret"></span> -->
           </button>
@@ -78,8 +78,12 @@
         </form>
       </div>
 
-      <div class="display-inline">
-        <form id="sign-out">
+      <div class="dropdown display-inline signed-in">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Sign Out
+              <!-- <span class="caret"></span> -->
+            </button>
+        <form id="sign-out" class="dropdown-menu" aria-labelledby="dropdownMenu1">
           <div class="form-group">
           </div>
           <button type="submit" name="submit" class="sign-out-button btn btn-default signed-in">Sign Out</button>
@@ -90,7 +94,7 @@
   </nav>
   <!-- END NAV BAR -->
 
-  <div class="dropdown">
+  <div class="dropdown middle">
     <button class="btn btn-default dropdown-toggle signed-in" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Add Book
         <!-- <span class="caret"></span> -->
@@ -109,37 +113,35 @@
         <label for="author-first-name">Author First Name</label>
         <input type="text" class="form-control" id="author-first-name" name="book[author_first_name]" placeholder="Author's First Name">
       </div>
-      <!--<div class="form-group">
-        <label for="book-genre">Book Genre</label>
-        <input type="text" class="form-control" id="book-genre" name="book[genre]" placeholder="Genre">
-      </div>
-      <div class="form-group">
-        <label for="book-rating">Book Rating</label>
-        <input type="text" class="form-control" id="book-rating" name="book[rating]" placeholder="Rate This Book">
-      </div> -->
       <button type="submit" class="btn btn-secondary">Submit</button>
     </form>
   </div>
 
-  <div class="get-all-books">
+  <div class="middle signed-in">
     <button type="button" id="get-books" class="btn btn-secondary">See books you can add to your bookshelf</button>
     <div id="show-books">
     </div>
   </div>
 
-  <div class="view-reviews">
+  <div class="view-reviews signed-in  middle">
     <button type="button" id="get-reviews" class="btn btn-secondary">View bookshelf</button>
     <div id="show-reviews">
     </div>
   </div>
 
-  <div class="get-one-review">
+  <!-- <div class="get-one-review">
     <button type="button" id="one-review" class="btn btn-secondary">See One Book</button>
-    <div id="get-one-review">
-    </div>
+  </div> -->
+
+  <!-- <div id="update-this-review">
+    <p>Here's hoping?</p>
   </div>
 
-  <div class="dropdown">
+  <div id="get-one-review">
+    <p>Yello!</p>
+  </div> -->
+
+  <div class="dropdown middle">
     <button class="btn btn-default dropdown-toggle signed-in" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Add Review
         <!-- <span class="caret"></span> -->

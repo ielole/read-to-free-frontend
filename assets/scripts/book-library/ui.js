@@ -1,13 +1,11 @@
 'use strict';
 
 const showBooksTemplate = require('../handlebar-templates/display-select-book.handlebars');
-// const showTitlesTemplate = require('../templates/book-titles.handlebars');
+
 const showReviewsTemplate = require('../handlebar-templates/display-review-bookshelf.handlebars');
 
-// const getBooksSuccess = (books) => {
-// console.log("books is ", books);
-// $('#content').html(showBooksTemplate(books));
-// };
+// const updateReviewTemplate = require('../handlebar-templates/display-update-form.handlebars');
+
 
 const addBookSuccess = (data) => {
   console.log("You've added a book!");
@@ -66,7 +64,8 @@ const deleteReviewFailure = () => {
 
 const getOneReviewSuccess = (data) => {
   console.log("You've updated a book on your bookshelf!");
-  console.log(data);
+  // $('#update-this-review').html(updateReviewTemplate(data));
+  console.log('this is one review', data);
 };
 
 const getOneReviewFailure = (error) => {
