@@ -51,11 +51,6 @@
             <label for="password">Password</label>
             <input type="password" name="credentials[password]" placeholder="Password">
           </div>
-          <div class="form-check">
-            <label class="form-check-label">
-                <input class="form-check-input" type="checkbox"> Remember me
-              </label>
-          </div>
           <button type="submit" class="sign-in-button">Sign in</button>
         </form>
       </div>
@@ -96,7 +91,7 @@
 
   <div class="dropdown middle">
     <button class="btn btn-default dropdown-toggle signed-in" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Add Book
+        Not Finding A Book You've Read? Add the Book to the Library.
         <!-- <span class="caret"></span> -->
     </button>
     <form id="add-a-book" class="dropdown-menu one-book" aria-labelledby="dropdownMenu1">
@@ -113,12 +108,12 @@
         <label for="author-first-name">Author First Name</label>
         <input type="text" class="form-control" id="author-first-name" name="book[author_first_name]" placeholder="Author's First Name">
       </div>
-      <button type="submit" class="btn btn-secondary">Submit</button>
+      <button type="submit" class="btn btn-secondary">Add Book to Library</button>
     </form>
   </div>
 
   <div class="middle signed-in">
-    <button type="button" id="get-books" class="btn btn-secondary">See books you can add to your bookshelf</button>
+    <button type="button" id="get-books" class="btn btn-secondary">See Books you can add to your bookshelf, by writing a Review of the Book.</button>
     <div id="show-books">
     </div>
   </div>
@@ -143,11 +138,11 @@
 
   <div class="dropdown middle">
     <button class="btn btn-default dropdown-toggle signed-in" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Add Review
+        Write a Review of THIS Book to add it your Bookshelf.
         <!-- <span class="caret"></span> -->
     </button>
     <form id="add-a-review" class="dropdown-menu one-book" aria-labelledby="dropdownMenu1">
-      <h4>ADD A REVIEW</h4>
+      <h4>REVIEW A BOOK</h4>
       <div class="form-group">
         <label for="book-id">Book ID</label>
         <input type="text" class="form-control" id="book-id" name="review[book_id]" placeholder="Book ID">
