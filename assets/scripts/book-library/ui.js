@@ -1,5 +1,7 @@
 'use strict';
 
+const api = require('./api.js');
+
 const showBooksTemplate = require('../handlebar-templates/display-select-book.handlebars');
 
 const showReviewsTemplate = require('../handlebar-templates/display-review-bookshelf.handlebars');
@@ -55,7 +57,11 @@ const addReviewFailure = (error) => {
 };
 
 const deleteReviewSuccess = () => {
+  // debugger;
   console.log("You've removed a book from your bookshelf!");
+  api.getReviews()
+    .then(getReviewsSuccess)
+    .catch(getReviewsFailure);
 };
 
 const deleteReviewFailure = () => {

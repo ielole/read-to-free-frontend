@@ -6,4 +6,26 @@
     Book id: {{book.id}}
   </small></h1>
   <hr>
+
+  <form class="add-a-review">
+    <h4>REVIEW A BOOK</h4>
+    <div class="form-group">
+      <input type="hidden" class="form-control" id="book-id" name="review[book_id]" value={{book.id}}>
+    </div>
+    <!-- <div class="form-group">
+      <label for="user_id">User ID</label>
+      <input type="text" class="form-control" id="user-id" name="review[user_id]" placeholder="User ID">
+    </div> -->
+    <div class="form-group">
+      <label for="book-comment">Comments</label>
+      <input type="text" class="form-control" id="book-comment" name="review[comment]" placeholder="Comment">
+    </div>
+    <div class="form-group">
+      <label for="book-rating">Book Rating</label>
+      <input type="text" class="form-control" id="book-rating" name="review[rating]" placeholder="Rate This Book">
+    </div>
+    <button type="submit" class="btn btn-secondary">Submit</button>
+  </form>
+</div>
+
 {{/each}}

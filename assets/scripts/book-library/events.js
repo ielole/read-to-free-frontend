@@ -83,7 +83,8 @@ const onGetBooks = function() {
   api.getIndex()
     .then(ui.getBooksSuccess)
     .then(function(){
-      $('.show-me-review-modal').on('click', onAddReview);
+      // $('.show-me-review-modal').on('click', onAddReview);
+      $(".add-a-review").on('submit', onAddReview);
     })
     .catch(ui.failure);
 };
@@ -94,7 +95,7 @@ const addBookHandlers = () => {
 $("#add-a-book").on('submit', onAddBook);
 $("#get-books").on('click', onGetBooks);
 $("#get-reviews").on('click', onGetReviews);
-$("#add-a-review").on('submit', onAddReview);
+// $("#add-a-review").on('submit', onAddReview);
 // $("#one-review").on('click', onGetOneReview);
 };
 
