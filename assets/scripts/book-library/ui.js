@@ -8,6 +8,8 @@ const showReviewsTemplate = require('../handlebar-templates/display-review-books
 
 // const updateReviewTemplate = require('../handlebar-templates/display-update-form.handlebars');
 
+let showFlag = 0;
+
 
 const addBookSuccess = (data) => {
   console.log("You've added a book!");
@@ -36,8 +38,17 @@ const failure = (error) => {
 };
 
 const getReviewsSuccess = (data) => {
+  // debugger;
   console.log("These are your reviews/ books on your bookshelf");
-  $('#show-reviews').html(showReviewsTemplate(data));
+  if(!showFlag) {
+    $('#show-reviews').show();
+    $('#show-reviews').html(showReviewsTemplate(data));
+    showFlag = 1;
+  }
+  else if (showFlag) {
+    $('#show-reviews').hide();
+    showFlag = 0;
+  }
   console.log(data);
 };
 
