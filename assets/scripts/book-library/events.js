@@ -57,14 +57,6 @@ const onGetReviews = function() {
       $('.delete-review').on('click', onDeleteReview);
       $('.update-review').on('click', onGetOneReview);
       $('#update-a-review').on('submit', onUpdateOneReview);
-      // $("#prospects_form").submit(function(e) {
-    // e.preventDefault();
-// });
-    //   $('#update-a-review').submit(function(event)) {
-    //     onUpdateOneReview($(this));
-    //     event.preventDefault();
-    //   }
-    // );
   })
     .catch(ui.getReviewsFailure);
 };
@@ -89,12 +81,22 @@ const onGetBooks = function() {
     .catch(ui.failure);
 };
 
+const onSearchBooks = function(event) {
+  // console.log('Suja Rocks');
+  let data = getFormFields(this);
+  event.preventDefault();
+  api.searchBooks(data)
+    .then(ui.searchBooksSuccess)
+    .catch(ui.searchBooksFailure);
+};
+
 
 
 const addBookHandlers = () => {
 $("#add-a-book").on('submit', onAddBook);
 $("#get-books").on('click', onGetBooks);
 $("#get-reviews").on('click', onGetReviews);
+$('#search-book-titles').on('submit', onSearchBooks);
 // $("#add-a-review").on('submit', onAddReview);
 // $("#one-review").on('click', onGetOneReview);
 };
