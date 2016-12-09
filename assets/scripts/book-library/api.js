@@ -70,6 +70,16 @@ const updateOneReview = (reviewId, data) =>
     }
   });
 
+const searchBooks = (data) =>
+    $.ajax ({
+    url: config.host + '/search-books',
+    method: 'GET',
+    data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+      }
+    });
+
   module.exports = {
     addBook,
     getIndex,
@@ -78,5 +88,6 @@ const updateOneReview = (reviewId, data) =>
     deleteReview,
     getOneReview,
     updateOneReview,
+    searchBooks,
 
 };
