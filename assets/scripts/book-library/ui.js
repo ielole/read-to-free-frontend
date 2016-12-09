@@ -8,7 +8,8 @@ const showReviewsTemplate = require('../handlebar-templates/display-review-books
 
 // const updateReviewTemplate = require('../handlebar-templates/display-update-form.handlebars');
 
-let showFlag = 0;
+let showReviewsFlag = 0;
+let showBooksFlag = 0;
 
 
 const addBookSuccess = (data) => {
@@ -23,7 +24,14 @@ const addBookFailure = (error) => {
 
 const getBooksSuccess = (data) => {
   console.log("YaY!");
-  $('#show-books').html(showBooksTemplate(data));
+  if(!showBooksFlag) {
+    $('#show-books').show();
+    $('#show-books').html(showBooksTemplate(data));
+    showBooksFlag = 1;
+  } else if (showBooksFlag) {
+    $('#show-books').hide();
+    showBooksFlag = 0;
+  }
   console.log(data);
 };
 
@@ -40,14 +48,14 @@ const failure = (error) => {
 const getReviewsSuccess = (data) => {
   // debugger;
   console.log("These are your reviews/ books on your bookshelf");
-  if(!showFlag) {
+  if(!showReviewsFlag) {
     $('#show-reviews').show();
     $('#show-reviews').html(showReviewsTemplate(data));
-    showFlag = 1;
+    showReviewsFlag = 1;
   }
-  else if (showFlag) {
+  else if (showReviewsFlag) {
     $('#show-reviews').hide();
-    showFlag = 0;
+    showReviewsFlag = 0;
   }
   console.log(data);
 };
