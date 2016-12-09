@@ -56,7 +56,7 @@ const onGetReviews = function() {
     .then(function() {
       $('.delete-review').on('click', onDeleteReview);
       $('.update-review').on('click', onGetOneReview);
-      $('#update-a-review').on('submit', onUpdateOneReview);
+      $('.update-a-review').on('submit', onUpdateOneReview);
       // $("#prospects_form").submit(function(e) {
     // e.preventDefault();
 // });

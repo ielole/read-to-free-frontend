@@ -10,19 +10,18 @@
     Book rating: {{review.rating}}
   </small></h3>
   <button class='delete-review' data-id={{review.id}}>
-      Delete Review {{review.id}}
+      Delete Review <!--{{review.id}}-->
   </button>
   <!--<button class='update-review' data-id={{review.id}}>
       Update Review {{review.id}}
   </button> -->
-  <form id="update-a-review" class="whose-id" data-id={{review.id}}>
-    <div class="form-group">
+  <form class="update-a-review whose-id" data-id={{review.id}}>
+    <!--<div class="form-group">
       <label for="oneReviewUserId">User Id: {{review.user_id}}</label>
-      <input type="text" class="form-control" id="one-review-user-id" name="review[user_id]" value={{review.user_id}}>
-    </div>
+      <input type="hidden" class="form-control" id="one-review-user-id" name="review[user_id]" value={{review.user_id}}>
+    </div> -->
     <div class="form-group">
-      <label for="oneReviewBookId">Book Id: {{review.book.id}}</label>
-      <input type="text" class="form-control" id="one-review-book-id" name="review[book_id]" value={{review.book.id}}>
+      <input type="hidden" class="form-control" id="one-review-book-id" name="review[book_id]" value={{review.book.id}}>
     </div>
     <div class="form-group">
       <label for="oneReviewComment">Review Comments</label>
