@@ -85,9 +85,9 @@ const onSearchBooks = function(event) {
   // console.log('Suja Rocks');
   let data = getFormFields(this);
   event.preventDefault();
-  api.searchBooks(data);
-  //   .then(ui.searchBooksSuccess)
-  //   .catch(ui.searchBooksFailure);
+  api.searchBooks(data)
+    .then(ui.searchBooksSuccess)
+    .catch(ui.searchBooksFailure);
 };
 
 

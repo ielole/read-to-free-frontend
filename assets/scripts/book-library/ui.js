@@ -90,6 +90,16 @@ const getOneReviewFailure = (error) => {
   console.log(error);
 };
 
+const searchBooksSuccess = (data) => {
+  console.log("These are your search results!");
+  console.log(data);
+};
+
+const searchBooksFailure = (error) => {
+  console.log("Oops, something went wrong during the search.");
+  console.log(error);
+};
+
 
 module.exports = {
   success,
@@ -104,5 +114,8 @@ module.exports = {
   deleteReviewSuccess,
   deleteReviewFailure,
   getOneReviewSuccess,
-  getOneReviewFailure
+  getOneReviewFailure,
+  searchBooksFailure,
+  searchBooksSuccess,
+
 };
