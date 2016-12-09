@@ -103,22 +103,36 @@
         Not Finding A Book You've Read? Add the Book to the Library.
         <!-- <span class="caret"></span> -->
     </button>
-    <form id="add-a-book" class="dropdown-menu one-book" aria-labelledby="dropdownMenu1">
-      <h4>ADD A BOOK</h4>
-      <div class="form-group">
-        <label for="book-title">Book Title</label>
-        <input type="text" class="form-control" id="book-title" name="book[title]" placeholder="Book Title">
-      </div>
-      <div class="form-group">
-        <label for="author-last-name">Author Last Name</label>
-        <input type="text" class="form-control" id="author-last-name" name="book[author_last_name]" placeholder="Author's Last Name">
-      </div>
-      <div class="form-group">
-        <label for="author-first-name">Author First Name</label>
-        <input type="text" class="form-control" id="author-first-name" name="book[author_first_name]" placeholder="Author's First Name">
-      </div>
-      <button type="submit" class="btn btn-secondary">Add Book to Library</button>
-    </form>
+
+      <form id="add-a-book" class="dropdown-menu one-book add-a-review" aria-labelledby="dropdownMenu1">
+        <h4>ADD A BOOK to the Library and your Bookshelf</h4>
+        <div class="form-group">
+          <label for="book-title">Book Title</label>
+          <input type="text" class="form-control" id="book-title" name="book[title]" placeholder="Book Title">
+        </div>
+        <div class="form-group">
+          <label for="author-last-name">Author Last Name</label>
+          <input type="text" class="form-control" id="author-last-name" name="book[author_last_name]" placeholder="Author's Last Name">
+        </div>
+        <div class="form-group">
+          <label for="author-first-name">Author First Name</label>
+          <input type="text" class="form-control" id="author-first-name" name="book[author_first_name]" placeholder="Author's First Name">
+        </div>
+
+        <div class="form-group">
+          <input type="hidden" class="form-control" id="book-id" name="review[book_id]" value={{book.id}}>
+        </div>
+        <div class="form-group">
+          <label for="book-comment">Comments</label>
+          <input type="text" class="form-control" id="book-comment" name="review[comment]" placeholder="Comment">
+        </div>
+        <div class="form-group">
+          <label for="book-rating">Book Rating</label>
+          <input type="text" class="form-control" id="book-rating" name="review[rating]" placeholder="Rate This Book">
+        </div>
+        <button type="submit" class="btn btn-secondary">Add Book</button>
+      </form>
+
   </div>
 
   <div class="middle signed-in">

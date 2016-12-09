@@ -15,6 +15,7 @@ let showBooksFlag = 0;
 const addBookSuccess = (data) => {
   console.log("You've added a book!");
   console.log(data);
+  return data;
 };
 
 const addBookFailure = (error) => {

@@ -6,13 +6,23 @@ const api = require('./api.js');
 const ui = require('./ui.js');
 
 const onAddBook = function(event) {
-  let data = getFormFields(this);
+  let formData = getFormFields(this);
   event.preventDefault();
   // console.log('this is ', this)
   // console.log('data is ', data);
-  api.addBook(data)
+  api.addBook(formData)
     .then(ui.addBookSuccess)
-    .catch(ui.addBookFailure);
+    .catch(ui.addBookFailure)
+    // .then(console.log('this is after addbooksuccess', formData));
+    .then(function(bookData) {
+      formData.review.book_id = bookData.book.id;
+      // console.log('this is bookData', bookData);
+      // console.log('this is formData', formData);
+      return api.addReview(formData);
+
+      })
+      .then(ui.addReviewSuccess)
+      .catch(ui.addReviewFailure);
 };
 
 
