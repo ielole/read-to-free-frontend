@@ -49,21 +49,30 @@ const failure = (error) => {
 const getReviewsSuccess = (data) => {
   // debugger;
   console.log("These are your reviews/ books on your bookshelf");
-  if(!showReviewsFlag) {
-    $('#show-reviews').show();
+  // if(!showReviewsFlag) {
+  //   $('#show-reviews').show();
     $('#show-reviews').html(showReviewsTemplate(data));
-    showReviewsFlag = 1;
-  }
-  else if (showReviewsFlag) {
-    $('#show-reviews').hide();
-    showReviewsFlag = 0;
-  }
+    $('.review-form').hide();
+  //   showReviewsFlag = 1;
+  // }
+  // else if (showReviewsFlag) {
+  //   $('#show-reviews').hide();
+  //   showReviewsFlag = 0;
+  // }
   console.log(data);
 };
 
 const getReviewsFailure = (error) => {
   console.log("No reviews for YOU!");
   console.log(error);
+};
+
+const updateForm = () => {
+  $('.review-form').show();
+};
+
+const hideBookshelf = () => {
+  $('#show-reviews').html('');
 };
 
 const addReviewSuccess = (data) => {
@@ -79,6 +88,7 @@ const addReviewFailure = (error) => {
 const deleteReviewSuccess = () => {
   // debugger;
   console.log("You've removed a book from your bookshelf!");
+  $('#show-reviews').show();
   api.getReviews()
     .then(getReviewsSuccess)
     .catch(getReviewsFailure);
@@ -86,6 +96,23 @@ const deleteReviewSuccess = () => {
 
 const deleteReviewFailure = () => {
   console.log("Something went wrong, bookshelf still has book.");
+};
+
+const updateOneReviewSuccess = (data) => {
+  console.log("You've updated a review!");
+  console.log(data);
+  // $('.review-form').hide();
+  api.getReviews()
+    .then(getReviewsSuccess)
+    .catch(getReviewsFailure);
+
+  // $('#show-reviews').html(showReviewsTemplate(data));
+
+};
+
+const updateOneReviewFailure = (error) => {
+  console.log("Oops, something went wrong. Review has not been updated.");
+  console.log(error);
 };
 
 const getOneReviewSuccess = (data) => {
@@ -122,9 +149,13 @@ module.exports = {
   addReviewFailure,
   deleteReviewSuccess,
   deleteReviewFailure,
+  updateOneReviewSuccess,
+  updateOneReviewFailure,
   getOneReviewSuccess,
   getOneReviewFailure,
   searchBooksFailure,
   searchBooksSuccess,
+  hideBookshelf,
+  updateForm,
 
 };
