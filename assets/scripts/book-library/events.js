@@ -36,6 +36,9 @@ const onDeleteReview = function(event) {
   let reviewId = event.target.getAttribute('data-id');
   api.deleteReview(reviewId)
     .then(ui.deleteReviewSuccess)
+    .then(function() {
+      onGetReviews();
+    })
     .catch(ui.deleteReviewFailure);
 };
 
@@ -56,9 +59,9 @@ const onUpdateOneReview = function(event) {
   console.log(reviewId, data);
   api.updateOneReview(reviewId, data)
     .then(ui.updateOneReviewSuccess)
-    // .then(function() {
-    //   $('.edit-review').on('click', onEditReview);
-    // })
+    .then(function() {
+      onGetReviews();
+    })
     .catch(ui.updateOneReviewFailure);
 };
 
