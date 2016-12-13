@@ -26,7 +26,6 @@ const onAddBook = function(event) {
 };
 
 
-
 const onDeleteReview = function(event) {
   // console.log('do you do what i think you do?');
   // let data = getFormFields(this);
@@ -42,14 +41,17 @@ const onDeleteReview = function(event) {
     .catch(ui.deleteReviewFailure);
 };
 
-const onGetOneReview = function(event) {
-  console.log('Sunday sunday sunday!');
-  event.preventDefault();
-  let reviewId = event.target.getAttribute('data-id');
-  api.getOneReview(reviewId)
-    .then(ui.getOneReviewSuccess)
-    .catch(ui.getOneReviewFailure);
-};
+// const onGetOneReview = function(event) {
+//   console.log('Sunday sunday sunday!');
+//   event.preventDefault();
+//   let reviewId = event.target.getAttribute('data-id');
+//   api.getOneReview(reviewId)
+//     .then(ui.getOneReviewSuccess)
+//     .then(function() {
+//       onGetReviews();
+//     })
+//     .catch(ui.getOneReviewFailure);
+// };
 
 const onUpdateOneReview = function(event) {
   let reviewId = event.target.getAttribute('data-id');
@@ -83,7 +85,7 @@ const onGetReviews = function() {
     .then(ui.getReviewsSuccess)
     .then(function() {
       $('.delete-review').on('click', onDeleteReview);
-      $('.update-review').on('click', onGetOneReview);
+      // $('.update-review').on('click', onGetOneReview);
       $('.edit-review').on('click', onEditReview);
       $('.hide-reviews').on('click', onhideBookshelf);
       $('.update-a-review').on('submit', onUpdateOneReview);
