@@ -1,39 +1,52 @@
 {{#each reviews as |review|}}
 <div>
   <hr>
-  <h2><small>{{review.book.title}} by {{review.book.author_first_name}} {{review.book.author_last_name}} </small></h2>
+  <div class="book-cover">
+  <h2><small>{{review.book.title}}
+    <br>
+    by
+    <br>
+    {{review.book.author_first_name}} {{review.book.author_last_name}} </small></h2>
+  </div>
   <h3><small>
-    <strong>Comments About the Book:</strong>
+    <strong>Your Review of {{review.book.title}}:</strong>
     <br>
     {{review.comment}}
     <br>
     Book rating: {{review.rating}}
   </small></h3>
-  <button class='delete-review' data-id={{review.id}}>
-      Delete Review {{review.id}}
-  </button>
   <!--<button class='update-review' data-id={{review.id}}>
       Update Review {{review.id}}
   </button> -->
-  <form id="update-a-review" class="whose-id" data-id={{review.id}}>
-    <div class="form-group">
+  <div class="review-form">
+    <form class="update-a-review whose-id" data-id={{review.id}}>
+    <!-- <div class="form-group">
       <label for="oneReviewUserId">User Id: {{review.user_id}}</label>
-      <input type="text" class="form-control" id="one-review-user-id" name="review[user_id]" placeholder="User Id">
-    </div>
-    <div class="form-group">
-      <label for="oneReviewBookId">Book Id: {{review.book.id}}</label>
-      <input type="text" class="form-control" id="one-review-book-id" name="review[book_id]" placeholder="Book Id">
-    </div>
-    <div class="form-group">
-      <label for="oneReviewComment">Review Comments</label>
-      <input type="text" class="form-control" id="one-review-comment" name="review[comment]" placeholder="Updated Comments">
-    </div>
-    <div class="form-group">
-      <label for="oneReviewRating">Review Rating</label>
-      <input type="text"  class="form-control" id="one-review-rating" name="review[rating]" placeholder="Updated Rating">
-    </div>
-    <button type="submit" class="btn btn-secondary">Update Review</button>
-  </form>
-  <hr>
+      <input type="text" class="form-control" id="one-review-user-id" name="review[user_id]" value={{review.user_id}}>
+    </div> -->
+      <div class="form-group">
+        <input type="hidden" class="form-control" id="one-review-book-id" name="review[book_id]" value={{review.book.id}}>
+      </div>
+      <div class="form-group">
+        <label for="oneReviewComment">Review Comments</label>
+        <textarea class="form-control" id="one-review-comment" name="review[comment]" required>{{review.comment}}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="oneReviewRating">Review Rating</label>
+        <input type="number"  min="0" max="50" step="5" class="form-control" id="one-review-rating" name="review[rating]" required value={{review.rating}}>
+      </div>
+      <button type="submit" class="btn btn-secondary">Update Review</button>
+    </form>
+  </div>
+
+  <button class="edit-review">
+      Edit Review
+  </button>
+  <button class="delete-review" data-id={{review.id}}>
+      Delete Review {{review.id}}
+  </button>
+  <button class="hide-reviews">
+      Hide Bookshelf
+  </button>
 </div>
 {{/each}}

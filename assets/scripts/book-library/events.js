@@ -6,15 +6,24 @@ const api = require('./api.js');
 const ui = require('./ui.js');
 
 const onAddBook = function(event) {
-  let data = getFormFields(this);
+  let formData = getFormFields(this);
   event.preventDefault();
   // console.log('this is ', this)
   // console.log('data is ', data);
-  api.addBook(data)
+  api.addBook(formData)
     .then(ui.addBookSuccess)
-    .catch(ui.addBookFailure);
-};
+    .catch(ui.addBookFailure)
+    // .then(console.log('this is after addbooksuccess', formData));
+    .then(function(bookData) {
+      formData.review.book_id = bookData.book.id;
+      // console.log('this is bookData', bookData);
+      // console.log('this is formData', formData);
+      return api.addReview(formData);
 
+      })
+      .then(ui.addReviewSuccess)
+      .catch(ui.addReviewFailure);
+};
 
 
 const onDeleteReview = function(event) {
@@ -26,17 +35,23 @@ const onDeleteReview = function(event) {
   let reviewId = event.target.getAttribute('data-id');
   api.deleteReview(reviewId)
     .then(ui.deleteReviewSuccess)
+    .then(function() {
+      onGetReviews();
+    })
     .catch(ui.deleteReviewFailure);
 };
 
-const onGetOneReview = function(event) {
-  console.log('Sunday sunday sunday!');
-  event.preventDefault();
-  let reviewId = event.target.getAttribute('data-id');
-  api.getOneReview(reviewId)
-    .then(ui.getOneReviewSuccess)
-    .catch(ui.getOneReviewFailure);
-};
+// const onGetOneReview = function(event) {
+//   console.log('Sunday sunday sunday!');
+//   event.preventDefault();
+//   let reviewId = event.target.getAttribute('data-id');
+//   api.getOneReview(reviewId)
+//     .then(ui.getOneReviewSuccess)
+//     .then(function() {
+//       onGetReviews();
+//     })
+//     .catch(ui.getOneReviewFailure);
+// };
 
 const onUpdateOneReview = function(event) {
   let reviewId = event.target.getAttribute('data-id');
@@ -44,9 +59,24 @@ const onUpdateOneReview = function(event) {
   event.preventDefault();
   console.log('I\'m so fancy!');
   console.log(reviewId, data);
-  api.updateOneReview(reviewId, data);
-    // .then(ui.updateOneReviewSuccess)
-    // .catch(ui.updateOneReviewFailure);
+  api.updateOneReview(reviewId, data)
+    .then(ui.updateOneReviewSuccess)
+    .then(function() {
+      onGetReviews();
+    })
+    .catch(ui.updateOneReviewFailure);
+};
+
+const onhideBookshelf = function(event) {
+  console.log('hide reviews');
+  event.preventDefault();
+  ui.hideBookshelf();
+};
+
+const onEditReview = function(event) {
+  console.log('control update-form div display property');
+  event.preventDefault();
+  ui.updateForm();
 };
 
 const onGetReviews = function() {
@@ -55,19 +85,14 @@ const onGetReviews = function() {
     .then(ui.getReviewsSuccess)
     .then(function() {
       $('.delete-review').on('click', onDeleteReview);
-      $('.update-review').on('click', onGetOneReview);
-      $('#update-a-review').on('submit', onUpdateOneReview);
-      // $("#prospects_form").submit(function(e) {
-    // e.preventDefault();
-// });
-    //   $('#update-a-review').submit(function(event)) {
-    //     onUpdateOneReview($(this));
-    //     event.preventDefault();
-    //   }
-    // );
+      // $('.update-review').on('click', onGetOneReview);
+      $('.edit-review').on('click', onEditReview);
+      $('.hide-reviews').on('click', onhideBookshelf);
+      $('.update-a-review').on('submit', onUpdateOneReview);
   })
     .catch(ui.getReviewsFailure);
 };
+
 
 const onAddReview = function(event) {
   // console.log('so tired');
@@ -78,14 +103,42 @@ const onAddReview = function(event) {
     .catch(ui.addReviewFailure);
 };
 
+const onhideLibrary = function(event) {
+  console.log('hide books');
+  event.preventDefault();
+  ui.hideLibrary();
+};
+
 const onGetBooks = function() {
   // console.log('bad mood');
   api.getIndex()
     .then(ui.getBooksSuccess)
     .then(function(){
-      $('.show-me-review-modal').on('click', onAddReview);
+      $(".hide-library").on('click', onhideLibrary);
+      // $('.show-me-review-modal').on('click', onAddReview);
+      $(".add-a-review").on('submit', onAddReview);
     })
     .catch(ui.failure);
+};
+
+const onhideSearch = function(event) {
+  console.log('hide books');
+  event.preventDefault();
+  ui.hideSearch();
+};
+
+const onSearchBooks = function(event) {
+  // console.log('Suja Rocks');
+  let data = getFormFields(this);
+  event.preventDefault();
+  api.searchBooks(data)
+    .then(ui.searchBooksSuccess)
+    .then(function(){
+      $(".hide-search-results").on('click', onhideSearch);
+      console.log('this is search data', data);
+      $(".search-add-review").on('submit', onAddReview);
+    })
+    .catch(ui.searchBooksFailure);
 };
 
 
@@ -94,7 +147,10 @@ const addBookHandlers = () => {
 $("#add-a-book").on('submit', onAddBook);
 $("#get-books").on('click', onGetBooks);
 $("#get-reviews").on('click', onGetReviews);
-$("#add-a-review").on('submit', onAddReview);
+$('#search-book-titles').on('submit', onSearchBooks);
+
+$('.hide-books').on('click', onhideLibrary);
+// $("#add-a-review").on('submit', onAddReview);
 // $("#one-review").on('click', onGetOneReview);
 };
 
