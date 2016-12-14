@@ -79,11 +79,13 @@ const hideBookshelf = () => {
 const addReviewSuccess = (data) => {
   console.log("You've added a review!");
   console.log(data);
+  $(".add-a-review").trigger("reset");
 };
 
 const addReviewFailure = (error) => {
   console.log("Oops, something went wrong. No, review.");
   console.log(error);
+  $(".add-a-review").trigger("reset");
 };
 
 const deleteReviewSuccess = () => {
