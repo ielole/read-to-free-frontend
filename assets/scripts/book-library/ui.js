@@ -14,6 +14,7 @@ const showSearchTemplate = require('../handlebar-templates/display-search-result
 
 const addBookSuccess = (data) => {
   console.log("You've added a book!");
+  $(".user-messages").html("You've added a book!");
   console.log(data);
   $("#add-a-book").trigger("reset");
   return data;
@@ -21,12 +22,14 @@ const addBookSuccess = (data) => {
 
 const addBookFailure = (error) => {
   console.log("Oops, something went wrong.");
+  $(".user-messages").html("Oops, something went wrong. Search titles to make sure that book isn't already in the Library.");
   console.log(error);
 };
 
 const getBooksSuccess = (data) => {
   console.log("YaY!");
   // if(!showBooksFlag) {
+    $(".user-messages").html(" ");
     $('#show-books').show();
     $('#show-books').html(showBooksTemplate(data));
   //   showBooksFlag = 1;
@@ -58,6 +61,7 @@ const getReviewsSuccess = (data) => {
   //   $('#show-reviews').show();
     $('#show-reviews').html(showReviewsTemplate(data));
     $('.review-form').hide();
+    // $(".user-messages").html(" ");
   //   showReviewsFlag = 1;
   // }
   // else if (showReviewsFlag) {
@@ -70,6 +74,7 @@ const getReviewsSuccess = (data) => {
 const getReviewsFailure = (error) => {
   console.log("No reviews for YOU!");
   console.log(error);
+  $(".user-messages").html("Oops, something went wrong. Make sure you've added a review to a book.");
 };
 
 const updateForm = () => {
@@ -82,18 +87,23 @@ const hideBookshelf = () => {
 
 const addReviewSuccess = (data) => {
   console.log("You've added a review!");
+  $(".user-messages").html("You've added a book with it's review to your Bookshelf!");
   console.log(data);
   $(".add-a-review").trigger("reset");
+  $(".search-add-review").trigger("reset");
 };
 
 const addReviewFailure = (error) => {
   console.log("Oops, something went wrong. No, review.");
+  $(".user-messages").html("Oops, something went wrong. No, review added.");
   console.log(error);
   $(".add-a-review").trigger("reset");
+  $(".search-add-review").trigger("reset");
 };
 
 const deleteReviewSuccess = () => {
   // debugger;
+  $(".user-messages").html("You've removed a book from your bookshelf!");
   console.log("You've removed a book from your bookshelf!");
   $('#show-reviews').show();
   // api.getReviews()
@@ -103,9 +113,11 @@ const deleteReviewSuccess = () => {
 
 const deleteReviewFailure = () => {
   console.log("Something went wrong, bookshelf still has book.");
+  $(".user-messages").html("Something went wrong, the book is still on the bookhelf.");
 };
 
 const updateOneReviewSuccess = (data) => {
+  $(".user-messages").html("You've updated a review!");
   console.log("You've updated a review!");
   console.log(data);
   // $('.review-form').hide();
@@ -119,6 +131,7 @@ const updateOneReviewSuccess = (data) => {
 
 const updateOneReviewFailure = (error) => {
   console.log("Oops, something went wrong. Review has not been updated.");
+  $(".user-messages").html("Oops, something went wrong. Review has not been updated.");
   console.log(error);
 };
 
@@ -135,6 +148,7 @@ const getOneReviewFailure = (error) => {
 
 const searchBooksSuccess = (data) => {
   console.log("These are your search results!");
+  $(".user-messages").html("Successful Search");
   console.log(data);
   $("#search-book-titles").trigger("reset");
   $(".search-results").html(showSearchTemplate(data));
@@ -142,6 +156,7 @@ const searchBooksSuccess = (data) => {
 
 const searchBooksFailure = (error) => {
   console.log("Oops, something went wrong during the search.");
+  $(".user-messages").html("Oops, something went wrong during the search.");
   console.log(error);
   $("#search-book-titles").trigger("reset");
 };
