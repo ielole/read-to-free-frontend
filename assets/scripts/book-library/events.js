@@ -135,6 +135,7 @@ const onSearchBooks = function(event) {
     .then(ui.searchBooksSuccess)
     .then(function(){
       $(".hide-search-results").on('click', onhideSearch);
+      $(".add-a-review").on('submit', onAddReview);
     })
     .catch(ui.searchBooksFailure);
 };
