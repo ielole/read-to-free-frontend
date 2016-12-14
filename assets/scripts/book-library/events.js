@@ -103,22 +103,25 @@ const onAddReview = function(event) {
     .catch(ui.addReviewFailure);
 };
 
+const onhideLibrary = function(event) {
+  console.log('hide books');
+  event.preventDefault();
+  ui.hideLibrary();
+};
+
 const onGetBooks = function() {
   // console.log('bad mood');
   api.getIndex()
     .then(ui.getBooksSuccess)
     .then(function(){
+      $(".hide-library").on('click', onhideLibrary);
       // $('.show-me-review-modal').on('click', onAddReview);
       $(".add-a-review").on('submit', onAddReview);
     })
     .catch(ui.failure);
 };
 
-const onhideLibrary = function(event) {
-  console.log('hide books');
-  event.preventDefault();
-  ui.hideLibrary();
-};
+
 
 const onSearchBooks = function(event) {
   // console.log('Suja Rocks');

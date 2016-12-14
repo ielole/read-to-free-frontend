@@ -1,6 +1,6 @@
 'use strict';
 
-const api = require('./api.js');
+// const api = require('./api.js');
 
 const showBooksTemplate = require('../handlebar-templates/display-select-book.handlebars');
 
@@ -8,8 +8,8 @@ const showReviewsTemplate = require('../handlebar-templates/display-review-books
 
 // const updateReviewTemplate = require('../handlebar-templates/display-update-form.handlebars');
 
-let showReviewsFlag = 0;
-let showBooksFlag = 0;
+// let showReviewsFlag = 0;
+// let showBooksFlag = 0;
 
 
 const addBookSuccess = (data) => {
@@ -25,15 +25,19 @@ const addBookFailure = (error) => {
 
 const getBooksSuccess = (data) => {
   console.log("YaY!");
-  if(!showBooksFlag) {
+  // if(!showBooksFlag) {
     $('#show-books').show();
     $('#show-books').html(showBooksTemplate(data));
-    showBooksFlag = 1;
-  } else if (showBooksFlag) {
-    $('#show-books').hide();
-    showBooksFlag = 0;
-  }
+  //   showBooksFlag = 1;
+  // } else if (showBooksFlag) {
+    // $('#show-books').hide();
+    // showBooksFlag = 0;
+  // }
   console.log(data);
+};
+
+const hideLibrary = () => {
+  $('#show-books').html('');
 };
 
 const success = (data) => {
@@ -89,9 +93,9 @@ const deleteReviewSuccess = () => {
   // debugger;
   console.log("You've removed a book from your bookshelf!");
   $('#show-reviews').show();
-  api.getReviews()
-    .then(getReviewsSuccess)
-    .catch(getReviewsFailure);
+  // api.getReviews()
+  //   .then(getReviewsSuccess)
+  //   .catch(getReviewsFailure);
 };
 
 const deleteReviewFailure = () => {
@@ -102,9 +106,9 @@ const updateOneReviewSuccess = (data) => {
   console.log("You've updated a review!");
   console.log(data);
   // $('.review-form').hide();
-  api.getReviews()
-    .then(getReviewsSuccess)
-    .catch(getReviewsFailure);
+  // api.getReviews()
+  //   .then(getReviewsSuccess)
+  //   .catch(getReviewsFailure);
 
   // $('#show-reviews').html(showReviewsTemplate(data));
 
@@ -157,5 +161,6 @@ module.exports = {
   searchBooksSuccess,
   hideBookshelf,
   updateForm,
+  hideLibrary,
 
 };
