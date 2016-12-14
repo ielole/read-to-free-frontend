@@ -24,5 +24,10 @@ Digital Bookshelf is an application for people who love to read. As an avid read
   *
 
 ## USER STORIES
+  ![User Stories](http://i.imgur.com/7p6PsQW.jpg)
+  ![Rate Books User Story](http://i.imgur.com/sRFwl5c.jpg?1)
+  ![Update Rating User Story](http://i.imgur.com/ApPz7IX.jpg?1)
 
 ## WIREFRAMES
+  ![Revamped Wireframe](http://i.imgur.com/OZSiw6b.jpg)
+  ![Initial Wireframes](http://i.imgur.com/yG9OPza.jpg)

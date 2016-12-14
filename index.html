@@ -90,7 +90,7 @@
           <div class="form-group">
             <input type="text" name="book[title]" required placeholder="Search Book Titles">
           </div>
-          <button type="submit" name="submit" class="book-search" >Submit</button>
+          <button type="submit" name="submit" class="book-search">Submit</button>
         </form>
       </div>
 
@@ -101,16 +101,23 @@
   <div class="intro">
     <h1>Digital Bookshelf</h1>
     <p>
-    Keep all of the books that you've read on ONE list. Search for books that you've read. And add books to your bookshelf by writing a comment and rating the book. Now, you'll have one centralized book list.
+      Keep all of the books that you've read on ONE list. Search for books that you've read. And add books to your bookshelf by writing a comment and rating the book. Now, you'll have one centralized book list.
     </p>
   </div>
 
   <div class="main">
-      <p>
-        Digital Bookshelf has a searchable library of books. We're adding new books to our library all the time, but if our search doesn't return the book you we're looking for, add it to the library.
-      </p>
-  <div class="dropdown middle">
-    <button class="btn btn-default dropdown-toggle signed-in" type="button" id="add-book-modal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <p>
+      Digital Bookshelf has a searchable library of books. We're adding new books to our library all the time, but if our search doesn't return the book you we're looking for, add it to the library.
+    </p>
+
+    <h4>Search Results</h4>
+    <div class="search-results">
+
+    </div>
+
+    <hr>
+    <div class="dropdown middle">
+      <button class="btn btn-default dropdown-toggle signed-in" type="button" id="add-book-modal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Not Finding A Book You've Read? Add the Book to the Library.
         <!-- <span class="caret"></span> -->
     </button>
@@ -145,7 +152,7 @@
         <button type="button" class="btn btn-secondary" data-toggle="dropdown"> Close</button>
       </form>
 
-  </div>
+    </div>
     <h3>Welcome to our Library</h3>
     <p>
       We've compiled a list of books, so that you don't have to manually enter the information for each book on your list. Soon you'll be able to import and consolidate book lists from Amazon, GoodReads and the Boston Public Library.
@@ -153,21 +160,21 @@
 
     <h4>Add a book to your Bookshelf by adding a review to the Library book</h4>
     <p>Note: Each book may have ONE review.</p>
-  <div class="middle signed-in">
-    <button type="button" id="get-books" class="btn btn-secondary">View Library</button>
-    <div id="show-books">
+    <div class="middle signed-in">
+      <button type="button" id="get-books" class="btn btn-secondary">View Library</button>
+      <div id="show-books">
+      </div>
     </div>
-  </div>
 
     <h4>Here's your Bookshelf</h4>
     <p>
       Here's the list of your Books! They're on your Bookshelf and you can update your opinion of the book or delete a book from your Bookshelf by deleting your review.
     </p>
-  <div class="view-reviews signed-in  middle">
-    <button type="button" id="get-reviews" class="btn btn-secondary">View bookshelf</button>
-    <div id="show-reviews">
+    <div class="view-reviews signed-in  middle">
+      <button type="button" id="get-reviews" class="btn btn-secondary">View bookshelf</button>
+      <div id="show-reviews">
+      </div>
     </div>
-  </div>
   </div>
 
 </body>

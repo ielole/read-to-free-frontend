@@ -121,7 +121,11 @@ const onGetBooks = function() {
     .catch(ui.failure);
 };
 
-
+const onhideSearch = function(event) {
+  console.log('hide books');
+  event.preventDefault();
+  ui.hideSearch();
+};
 
 const onSearchBooks = function(event) {
   // console.log('Suja Rocks');
@@ -129,6 +133,9 @@ const onSearchBooks = function(event) {
   event.preventDefault();
   api.searchBooks(data)
     .then(ui.searchBooksSuccess)
+    .then(function(){
+      $(".hide-search-results").on('click', onhideSearch);
+    })
     .catch(ui.searchBooksFailure);
 };
 

@@ -6,7 +6,7 @@ const showBooksTemplate = require('../handlebar-templates/display-select-book.ha
 
 const showReviewsTemplate = require('../handlebar-templates/display-review-bookshelf.handlebars');
 
-// const updateReviewTemplate = require('../handlebar-templates/display-update-form.handlebars');
+const showSearchTemplate = require('../handlebar-templates/display-search-results.handlebars');
 
 // let showReviewsFlag = 0;
 // let showBooksFlag = 0;
@@ -137,6 +137,7 @@ const searchBooksSuccess = (data) => {
   console.log("These are your search results!");
   console.log(data);
   $("#search-book-titles").trigger("reset");
+  $(".search-results").html(showSearchTemplate(data));
 };
 
 const searchBooksFailure = (error) => {
@@ -145,6 +146,9 @@ const searchBooksFailure = (error) => {
   $("#search-book-titles").trigger("reset");
 };
 
+const hideSearch = () => {
+  $(".search-results").html('');
+};
 
 module.exports = {
   success,
@@ -167,5 +171,6 @@ module.exports = {
   hideBookshelf,
   updateForm,
   hideLibrary,
+  hideSearch,
 
 };
