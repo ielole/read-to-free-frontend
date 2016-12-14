@@ -15,6 +15,7 @@ let showBooksFlag = 0;
 const addBookSuccess = (data) => {
   console.log("You've added a book!");
   console.log(data);
+  $("#add-a-book").trigger("reset");
   return data;
 };
 
@@ -129,11 +130,13 @@ const getOneReviewFailure = (error) => {
 const searchBooksSuccess = (data) => {
   console.log("These are your search results!");
   console.log(data);
+  $("#search-book-titles").trigger("reset");
 };
 
 const searchBooksFailure = (error) => {
   console.log("Oops, something went wrong during the search.");
   console.log(error);
+  $("#search-book-titles").trigger("reset");
 };
 
 
