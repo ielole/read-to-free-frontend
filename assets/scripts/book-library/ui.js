@@ -15,6 +15,7 @@ const showReviewsTemplate = require('../handlebar-templates/display-review-books
 const addBookSuccess = (data) => {
   console.log("You've added a book!");
   console.log(data);
+  $("#add-a-book").trigger("reset");
   return data;
 };
 
@@ -82,11 +83,13 @@ const hideBookshelf = () => {
 const addReviewSuccess = (data) => {
   console.log("You've added a review!");
   console.log(data);
+  $(".add-a-review").trigger("reset");
 };
 
 const addReviewFailure = (error) => {
   console.log("Oops, something went wrong. No, review.");
   console.log(error);
+  $(".add-a-review").trigger("reset");
 };
 
 const deleteReviewSuccess = () => {
@@ -133,11 +136,13 @@ const getOneReviewFailure = (error) => {
 const searchBooksSuccess = (data) => {
   console.log("These are your search results!");
   console.log(data);
+  $("#search-book-titles").trigger("reset");
 };
 
 const searchBooksFailure = (error) => {
   console.log("Oops, something went wrong during the search.");
   console.log(error);
+  $("#search-book-titles").trigger("reset");
 };
 
 
