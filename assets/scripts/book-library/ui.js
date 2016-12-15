@@ -50,9 +50,9 @@ const success = () => {
   // console.log(data);
 };
 
-const failure = (error) => {
+const failure = () => {
   $('.user-messages').html('Oop, something went wrong, try again.');
-  console.log(error);
+  // console.log(error);
 };
 
 const getReviewsSuccess = (data) => {
