@@ -57,8 +57,8 @@ const onUpdateOneReview = function(event) {
   let reviewId = event.target.getAttribute('data-id');
   let data = getFormFields(this);
   event.preventDefault();
-  console.log('I\'m so fancy!');
-  console.log(reviewId, data);
+  // console.log('I\'m so fancy!');
+  // console.log(reviewId, data);
   api.updateOneReview(reviewId, data)
     .then(ui.updateOneReviewSuccess)
     .then(function() {
@@ -68,13 +68,13 @@ const onUpdateOneReview = function(event) {
 };
 
 const onhideBookshelf = function(event) {
-  console.log('hide reviews');
+  // console.log('hide reviews');
   event.preventDefault();
   ui.hideBookshelf();
 };
 
 const onEditReview = function(event) {
-  console.log('control update-form div display property');
+  // console.log('control update-form div display property');
   event.preventDefault();
   ui.updateForm();
 };
@@ -122,7 +122,7 @@ const onGetBooks = function() {
 };
 
 const onhideSearch = function(event) {
-  console.log('hide books');
+  // console.log('hide books');
   event.preventDefault();
   ui.hideSearch();
 };
