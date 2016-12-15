@@ -236,29 +236,34 @@ webpackJsonp([0],[
 	var store = __webpack_require__(7);
 
 	var success = function success() {
-	  console.log('success');
+	  // console.log('success');
+	  $(".user-messages").html('success');
 	};
 
 	var signUpSuccess = function signUpSuccess() {
-	  console.log("You've successfully created an account!");
+	  // console.log("You've successfully created an account!");
+	  $(".user-messages").html("You've successfully created an account!");
 	  $("#sign-up").trigger("reset");
 	};
 
-	var signUpFailure = function signUpFailure(data) {
-	  console.log("Oops! Either, that email address already has an account or your passwords don't match. Try Again.");
-	  console.log(data);
+	var signUpFailure = function signUpFailure() {
+	  // console.log("Oops! Either, that email address already has an account or your passwords don't match. Try Again.");
+	  $(".user-messages").html("Oops! Either, that email address already has an account or your passwords don't match. Try Again.");
+	  // console.log(data);
 	  $("#sign-up").trigger("reset");
 	};
 
 	var failure = function failure() {
-	  console.log('Oops, try again.');
+	  // console.log('Oops, try again.');
+	  $(".user-messages").html('Oops, try again.');
 	};
 
 	var signInSuccess = function signInSuccess(data) {
 	  store.user = data.user;
 	  success(data);
-	  console.log("You've successfully signed in!");
-	  console.log(data);
+	  // console.log("You've successfully signed in!");
+	  $(".user-messages").html("You've successfully signed in!");
+	  // console.log(data);
 	  $(".signed-in").show();
 	  $(".signed-out").hide();
 	  // $("#sign-in").hide();
@@ -266,25 +271,29 @@ webpackJsonp([0],[
 	};
 
 	var signInFailure = function signInFailure() {
-	  console.log("Oops, something went wrong. Try signing in again.");
+	  // console.log("Oops, something went wrong. Try signing in again.");
+	  $(".user-messages").html("Oops, something went wrong. Try signing in again.");
 	  $("#sign-in").trigger("reset");
 	};
 
 	var changePasswordSuccess = function changePasswordSuccess() {
-	  console.log("Congrats! You've successfully changed your password.");
+	  // console.log("Congrats! You've successfully changed your password.");
+	  $(".user-messages").html("Congrats! You've successfully changed your password.");
 	  $("#change-password").trigger("reset");
 	  // $("#change-password").hide();
 	};
 
 	var changePasswordFailure = function changePasswordFailure() {
-	  console.log("Oops, something went wrong. Try changing your password again.");
+	  // console.log("Oops, something went wrong. Try changing your password again.");
+	  $(".user-messages").html("Oops, something went wrong. Try changing your password again.");
 	  $("#change-password").trigger("reset");
 	  // $("#change-password").hide();
 	};
 
 	var signOutSuccess = function signOutSuccess(data) {
 	  success(data);
-	  console.log("You've successfully signed out!");
+	  // console.log("You've successfully signed out!");
+	  $(".user-messages").html("You've successfully signed out!");
 	  // $("#sign-out").hide();
 	  $('.signed-in').hide();
 	  $('.signed-out').show();
@@ -358,21 +367,21 @@ webpackJsonp([0],[
 	  var reviewId = event.target.getAttribute('data-id');
 	  var data = getFormFields(this);
 	  event.preventDefault();
-	  console.log('I\'m so fancy!');
-	  console.log(reviewId, data);
+	  // console.log('I\'m so fancy!');
+	  // console.log(reviewId, data);
 	  api.updateOneReview(reviewId, data).then(ui.updateOneReviewSuccess).then(function () {
 	    onGetReviews();
 	  }).catch(ui.updateOneReviewFailure);
 	};
 
 	var onhideBookshelf = function onhideBookshelf(event) {
-	  console.log('hide reviews');
+	  // console.log('hide reviews');
 	  event.preventDefault();
 	  ui.hideBookshelf();
 	};
 
 	var onEditReview = function onEditReview(event) {
-	  console.log('control update-form div display property');
+	  // console.log('control update-form div display property');
 	  event.preventDefault();
 	  ui.updateForm();
 	};
@@ -411,7 +420,7 @@ webpackJsonp([0],[
 	};
 
 	var onhideSearch = function onhideSearch(event) {
-	  console.log('hide books');
+	  // console.log('hide books');
 	  event.preventDefault();
 	  ui.hideSearch();
 	};
@@ -568,21 +577,21 @@ webpackJsonp([0],[
 
 
 	var addBookSuccess = function addBookSuccess(data) {
-	  console.log("You've added a book!");
+	  // console.log("You've added a book!");
 	  $(".user-messages").html("You've added a book!");
-	  console.log(data);
+	  // console.log(data);
 	  $("#add-a-book").trigger("reset");
 	  return data;
 	};
 
-	var addBookFailure = function addBookFailure(error) {
-	  console.log("Oops, something went wrong.");
+	var addBookFailure = function addBookFailure() {
+	  // console.log("Oops, something went wrong.");
 	  $(".user-messages").html("Oops, something went wrong. Search titles to make sure that book isn't already in the Library.");
-	  console.log(error);
+	  // console.log(error);
 	};
 
 	var getBooksSuccess = function getBooksSuccess(data) {
-	  console.log("YaY!");
+	  // console.log("YaY!");
 	  // if(!showBooksFlag) {
 	  $(".user-messages").html(" ");
 	  $('#show-books').show();
@@ -592,26 +601,28 @@ webpackJsonp([0],[
 	  // $('#show-books').hide();
 	  // showBooksFlag = 0;
 	  // }
-	  console.log(data);
+	  // console.log(data);
 	};
 
 	var hideLibrary = function hideLibrary() {
 	  $('#show-books').html('');
 	};
 
-	var success = function success(data) {
-	  console.log('YAY!!!!');
-	  $('.show-books').html('Are you there?');
-	  console.log(data);
+	var success = function success() {
+	  // console.log('YAY!!!!');
+	  $('.user-messages').html('Success');
+	  // console.log(data);
 	};
 
-	var failure = function failure(error) {
-	  console.log(error);
+	var failure = function failure() {
+	  $('.user-messages').html('Oop, something went wrong, try again.');
+	  // console.log(error);
 	};
 
 	var getReviewsSuccess = function getReviewsSuccess(data) {
 	  // debugger;
-	  console.log("These are your reviews/ books on your bookshelf");
+	  // console.log("These are your reviews/ books on your bookshelf");
+	  $('.show-books').html("Here are your reviews on books.");
 	  // if(!showReviewsFlag) {
 	  //   $('#show-reviews').show();
 	  $('#show-reviews').html(showReviewsTemplate(data));
@@ -623,12 +634,12 @@ webpackJsonp([0],[
 	  //   $('#show-reviews').hide();
 	  //   showReviewsFlag = 0;
 	  // }
-	  console.log(data);
+	  // console.log(data);
 	};
 
-	var getReviewsFailure = function getReviewsFailure(error) {
-	  console.log("No reviews for YOU!");
-	  console.log(error);
+	var getReviewsFailure = function getReviewsFailure() {
+	  // console.log("No reviews for YOU!");
+	  // console.log(error);
 	  $(".user-messages").html("Oops, something went wrong. Make sure you've added a review to a book.");
 	};
 
@@ -640,18 +651,18 @@ webpackJsonp([0],[
 	  $('#show-reviews').html('');
 	};
 
-	var addReviewSuccess = function addReviewSuccess(data) {
-	  console.log("You've added a review!");
+	var addReviewSuccess = function addReviewSuccess() {
+	  // console.log("You've added a review!");
 	  $(".user-messages").html("You've added a book with it's review to your Bookshelf!");
-	  console.log(data);
+	  // console.log(data);
 	  $(".add-a-review").trigger("reset");
 	  $(".search-add-review").trigger("reset");
 	};
 
-	var addReviewFailure = function addReviewFailure(error) {
-	  console.log("Oops, something went wrong. No, review.");
+	var addReviewFailure = function addReviewFailure() {
+	  // console.log("Oops, something went wrong. No, review.");
 	  $(".user-messages").html("Oops, something went wrong. No, review added.");
-	  console.log(error);
+	  // console.log(error);
 	  $(".add-a-review").trigger("reset");
 	  $(".search-add-review").trigger("reset");
 	};
@@ -659,7 +670,7 @@ webpackJsonp([0],[
 	var deleteReviewSuccess = function deleteReviewSuccess() {
 	  // debugger;
 	  $(".user-messages").html("You've removed a book from your bookshelf!");
-	  console.log("You've removed a book from your bookshelf!");
+	  // console.log("You've removed a book from your bookshelf!");
 	  $('#show-reviews').show();
 	  // api.getReviews()
 	  //   .then(getReviewsSuccess)
@@ -667,14 +678,14 @@ webpackJsonp([0],[
 	};
 
 	var deleteReviewFailure = function deleteReviewFailure() {
-	  console.log("Something went wrong, bookshelf still has book.");
+	  // console.log("Something went wrong, bookshelf still has book.");
 	  $(".user-messages").html("Something went wrong, the book is still on the bookhelf.");
 	};
 
-	var updateOneReviewSuccess = function updateOneReviewSuccess(data) {
+	var updateOneReviewSuccess = function updateOneReviewSuccess() {
 	  $(".user-messages").html("You've updated a review!");
-	  console.log("You've updated a review!");
-	  console.log(data);
+	  // console.log("You've updated a review!");
+	  // console.log(data);
 	  // $('.review-form').hide();
 	  // api.getReviews()
 	  //   .then(getReviewsSuccess)
@@ -683,10 +694,10 @@ webpackJsonp([0],[
 	  // $('#show-reviews').html(showReviewsTemplate(data));
 	};
 
-	var updateOneReviewFailure = function updateOneReviewFailure(error) {
-	  console.log("Oops, something went wrong. Review has not been updated.");
+	var updateOneReviewFailure = function updateOneReviewFailure() {
+	  // console.log("Oops, something went wrong. Review has not been updated.");
 	  $(".user-messages").html("Oops, something went wrong. Review has not been updated.");
-	  console.log(error);
+	  // console.log(error);
 	};
 
 	var getOneReviewSuccess = function getOneReviewSuccess(data) {
@@ -701,17 +712,17 @@ webpackJsonp([0],[
 	};
 
 	var searchBooksSuccess = function searchBooksSuccess(data) {
-	  console.log("These are your search results!");
+	  // console.log("These are your search results!");
 	  $(".user-messages").html("Successful Search");
-	  console.log(data);
+	  // console.log(data);
 	  $("#search-book-titles").trigger("reset");
 	  $(".search-results").html(showSearchTemplate(data));
 	};
 
-	var searchBooksFailure = function searchBooksFailure(error) {
-	  console.log("Oops, something went wrong during the search.");
+	var searchBooksFailure = function searchBooksFailure() {
+	  // console.log("Oops, something went wrong during the search.");
 	  $(".user-messages").html("Oops, something went wrong during the search.");
-	  console.log(error);
+	  // console.log(error);
 	  $("#search-book-titles").trigger("reset");
 	};
 
@@ -741,7 +752,6 @@ webpackJsonp([0],[
 	  updateForm: updateForm,
 	  hideLibrary: hideLibrary,
 	  hideSearch: hideSearch
-
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
