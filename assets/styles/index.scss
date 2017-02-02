@@ -1,15 +1,22 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-body {
-  // background-image: url('./img/single-book.jpg');
-  background-size: cover;
-}
-
 .navbar {
   background-color: #404040;
   margin-bottom: 0;
   padding: 10px;
+}
+
+.view-lib-button {
+  float: left;
+}
+
+.view-reviews-button {
+  float: left;
+}
+
+.nav-buttons {
+  clear: both;
 }
 
 #sign-up {
@@ -24,9 +31,9 @@ body {
   width: 300px;
 }
 
-.sign-up-button {
-  text-align: center;
-}
+// .sign-up-button {
+//   text-align: center;
+// }
 
 .show-sign-up {
   // float: left;
@@ -72,27 +79,28 @@ body {
 }
 
 .book-search {
-  float: left;
-  margin-right: 10px;
-  margin-top: 10px;
+  // float: left;
+  margin: 10px;
+  border: 2px solid #000;
 }
 
 .search-input {
-  float: left;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
+  // float: left;
+  display: inline-flex;
+  margin: 10px;
 }
 
 .ch-pwd {
   // position: fixed;
   // right: 20px;
-  // float: right;
+  float: right;
 }
 
 .user-messages {
   color: #fff;
   font-weight: 500;
+  text-align: center;
+  width: auto;
 }
 
 // .intro {
@@ -153,12 +161,69 @@ body {
   height: 200px;
 }
 
-.form-check {
-  display: inline;
-}
+// .form-check {
+//   display: inline;
+// }
 
 // .dropdown {
 //   position: relative;
+// }
+
+// .library {
+//   border: 5px solid green;
+// }
+
+.lib-title {
+  background-color: #000;
+  border: 5px solid #404040;
+  color: #fff;
+  font-size: 40px;
+  letter-spacing: .125em;
+  padding: 4px;
+  // text-align: center;
+}
+
+.lib-info {
+  border: 4px solid #404040;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  font-size: 1.125em;
+  font-weight: 600;
+  margin: 10px 5px;
+  padding: 15px;
+  text-align: justify;
+  width: 60%;
+}
+
+.search-field {
+  border: 3px solid #000;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.search-form {
+  // border: 2px solid #E0E0E0;
+  background-color: #E0E0E0;
+  border-radius: 5px;
+  display: inline-flex;
+  height: auto;
+}
+
+.add-book-form {
+  background-color: #E0E0E0;
+  border-radius: 5px;
+  display: none;
+  text-align: center;
+  width: 33%;
+}
+
+.show-add-book-form {
+  margin: 20px;
+}
+
+// .center-button {
+//   text-align: center;
 // }
 
 .display-inline {
@@ -172,14 +237,15 @@ body {
 
 .one-book {
   height: auto;
+  margin: 1em;
   padding: 1em;
   width: 300px;
 }
 
-.middle {
-  margin: 1em;
-  text-align: center;
-}
+// .middle {
+//   margin: 1em;
+//   text-align: center;
+// }
 
 .center {
   margin: 0 auto;
@@ -204,7 +270,7 @@ body {
 }
 
 .book-cover {
-  background-color: wheat;
+  background-color: #FFFAF0;
   border: 6px double black;
   font-family: fantasy;
   height: 250px;
@@ -213,21 +279,106 @@ body {
   width: 200px;
 }
 
+.lib-books {
+  background-color: #000;
+  border: 5px solid #404040;
+  display: none;
+  height: auto;
+  margin: 0 auto;
+  overflow: auto;
+  padding-right: 0;
+  padding-top: 25px;
+  // clear: both;
+  text-align: center;
+  width: 80%;
+}
+
 .one-book-box {
-  border: 2px solid cyan;
-  float: left;
+  background-color: #808080;
+  border: 2px solid #fff;
+  display: inline-block;
+  // clear: right;
   margin: 0 5px 5px 0;
   max-height: 500px;
-  overflow: auto;
+  overflow-y: auto;
+  text-align: center;
   width: 300px;
+  // position: relative;
+  // left: 20px;
 }
 
 .add-a-review {
-  border: 2px solid orange;
-  margin: 0 auto;
+  border: 4px solid #000;
+  display: none;
+  margin: 5px auto;
+  padding: 5px;
   width: 80%;
 }
 
 .bookshelf {
-  clear: both;
+  border: 5px solid purple;
+  // clear: both;
+}
+
+.show-add-review {
+  margin-bottom: 10px;
+}
+
+.hide-library {
+  margin-bottom: 10px;
+}
+
+.add-title {
+  background-color: #808080;
+  border-radius: 5px;
+  color: #FFFAF0;
+  padding: 5px;
+}
+
+.bookshelf-container {
+  background-color: #000;
+  border: 6px solid #000;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.bookshelf-title {
+  font-size: 40px;
+}
+
+.bookshelf-info {
+  background-color: #808080;
+  border: 3px solid #F5F5F5;
+  font-size: 20px;
+}
+
+.single-review {
+  background-color: #F5F5F5;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0 5px 5px 0;
+  max-height: 500px;
+  overflow-y: scroll;
+  padding-bottom: 20px;
+  width: 33%;
+}
+
+.small-bookshelf-font {
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.update-a-review {
+  background-color: #909090;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.format-review {
+  background-color: #fff;
+  border: 4px solid #808080;
+  border-radius: 5px;
+  padding: 5px;
 }
