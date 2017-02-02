@@ -1,5 +1,5 @@
 {{#each books as |book|}}
-<div>
+<div class="one-book-box">
   <hr>
   <div class="book-cover">
   <h2><small>{{book.title}}
@@ -11,7 +11,7 @@
   <hr>
 
   <form class="add-a-review">
-    <h4>Add {{book.title}} to your Bookshelf by writing a Review.</h4>
+    <h4>Review: {{book.title}}</h4>
     <div class="form-group">
       <input type="hidden" class="form-control" id="book-id" name="review[book_id]" value={{book.id}}>
     </div>

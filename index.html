@@ -15,10 +15,10 @@
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
 
-      <div class="dropdown display-inline signed-out">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <!-- <div class="dropdown display-inline signed-out">
+        <button class="btn btn-default dropdown-toggle sign-up-button" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               Sign Up
-              <!-- <span class="caret"></span> -->
+
            </button>
         <form id="sign-up" class="dropdown-menu" aria-labelledby="dropdownMenu1">
           <div class="form-group">
@@ -38,9 +38,9 @@
       </div>
 
       <div class="dropdown display-inline signed-out">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <button class="btn btn-default dropdown-toggle sign-in-button" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               Sign In
-              <!-- <span class="caret"></span> -->
+
             </button>
         <form id="sign-in" class="dropdown-menu" aria-labelledby="dropdownMenu1">
           <div class="form-group">
@@ -53,10 +53,10 @@
           </div>
           <button type="submit" class="sign-in-button">Sign in</button>
         </form>
-      </div>
+      </div> -->
 
       <div class="dropdown display-inline signed-in">
-        <button class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <button class="btn btn-default dropdown-toggle ch-pwd" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Change Password
             <!-- <span class="caret"></span> -->
           </button>
@@ -85,44 +85,102 @@
         </form>
       </div>
 
-      <div class="display-inline signed-in">
+      <div class="signed-in">
         <form id="search-book-titles">
-          <div class="form-group">
+          <div class="form-group search-input">
             <input type="text" name="book[title]" required placeholder="Search Book Titles">
           </div>
           <button type="submit" name="submit" class="book-search">Submit</button>
         </form>
       </div>
-
+      <div class="user-messages"></div>
     </div>
+
+    <div class="middle signed-in">
+      <button type="button" id="get-books" class="btn btn-secondary">View Library</button>
+    </div>
+
+    <div class="view-reviews signed-in  middle">
+      <button type="button" id="get-reviews" class="btn btn-secondary">View bookshelf</button>
+    </div>
+
   </nav>
   <!-- END NAV BAR -->
 
   <div class="intro">
-    <h1>Digital Bookshelf</h1>
-    <p>
+    <div class="title-before">
+      <h1 class="main-title">Digital Bookshelf</h1>
+    </div>
+    <p class="about-bookshelf">
       Keep all of the books that you've read on ONE list. Search for books that you've read. And add books to your bookshelf by writing a comment and rating the book. Now, you'll have one centralized book list.
     </p>
-  </div>
 
-  <div class="main">
-    <p>
-      Digital Bookshelf has a searchable library of books. We're adding new books to our library all the time, but if our search doesn't return the book you we're looking for, add it to the library.
-    </p>
 
-    <hr>
-    <div class="user-messages">
+    <div class="main">
+      <p class="about-library">
+        Digital Bookshelf has a searchable library of books. We're adding new books to our library  all the time, but if our search doesn't return the book you we're looking for, add it to the  library.
+      </p>
+
+      <div class="below-image center signed-out">
+
+        <!-- <div class="signed-out"> -->
+          <button class="btn btn-default btn-lg show-sign-up" type="button">
+                Sign Up
+                <!-- <span class="caret"></span> -->
+          </button>
+          <form id="sign-up" class="left">
+            <div class="form-group">
+              <label for='sign-up-email'>Email address</label>
+              <input type="text" name="credentials[email]" placeholder="E-Mail">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="credentials[password]" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="password confirmation">Password</label>
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+            </div>
+            <div class="center">
+              <button type="submit" name="submit" class="sign-up-button">Sign Up</button>
+            </div>
+          </form>
+        <!-- </div> -->
+
+        <!-- <div class="signed-out"> -->
+          <button class="btn btn-default btn-lg show-sign-in" type="button">
+                Sign In
+                <!-- <span class="caret"></span> -->
+          </button>
+          <form id="sign-in" class="left">
+            <div class="form-group">
+              <label for="sign-up-email">Email address</label>
+              <input type="email" name="credentials[email]" placeholder="E-Mail">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="credentials[password]" placeholder="Password">
+            </div>
+            <div class="center">
+              <button type="submit" class="sign-in-button">Sign in</button>
+            </div>
+          </form>
+        <!-- </div> -->
+
+
+      </div>
+      <!-- <hr>
+      <div class="user-messages">
+      </div>
+      <hr> -->
     </div>
-    <hr>
-
-    <h4>Search Results</h4>
-    <div class="search-results">
-
-    </div>
 
 
 
-    <hr>
+    <h4 class="signed-in">Search Results</h4>
+    <div class="search-results signed-in"></div>
+
+    <!-- <hr> -->
     <div class="dropdown middle">
       <button class="btn btn-default dropdown-toggle signed-in" type="button" id="add-book-modal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Not Finding A Book You've Read? Add the Book to the Library.
@@ -158,28 +216,31 @@
         <button type="submit" class="btn btn-secondary"> Add Book</button>
         <button type="button" class="btn btn-secondary" data-toggle="dropdown"> Close</button>
       </form>
-
     </div>
-    <h3>Welcome to our Library</h3>
-    <p>
-      We've compiled a list of books, so that you don't have to manually enter the information for each book on your list. Soon you'll be able to import and consolidate book lists from Amazon, GoodReads and the Boston Public Library.
-    </p>
 
-    <h4>Add a book to your Bookshelf by adding a review to the Library book</h4>
-    <p>Note: Each book may have ONE review.</p>
-    <div class="middle signed-in">
-      <button type="button" id="get-books" class="btn btn-secondary">View Library</button>
-      <div id="show-books">
+    <div class="library signed-in">
+      <h3>Welcome to our Library</h3>
+      <p>
+        We've compiled a list of books, so that you don't have to manually enter the information for each book on your list. Soon you'll be able to import and consolidate book lists from Amazon, GoodReads and the Boston Public Library.
+      </p>
+      <h4>Add a book to your Bookshelf by adding a review to the Library book</h4>
+      <p>Note: Each book may have ONE review.</p>
+      <div class="middle signed-in">
+        <!-- <button type="button" id="get-books" class="btn btn-secondary">View Library</button> -->
+        <div id="show-books">
+        </div>
       </div>
     </div>
 
-    <h4>Here's your Bookshelf</h4>
-    <p>
-      Here's the list of your Books! They're on your Bookshelf and you can update your opinion of the book or delete a book from your Bookshelf by deleting your review.
-    </p>
-    <div class="view-reviews signed-in  middle">
-      <button type="button" id="get-reviews" class="btn btn-secondary">View bookshelf</button>
-      <div id="show-reviews">
+    <div class="bookshelf signed-in">
+      <h4>Here's your Bookshelf</h4>
+      <p>
+        Here's the list of your Books! They're on your Bookshelf and you can update your opinion of   the book or delete a book from your Bookshelf by deleting your review.
+      </p>
+      <div class="view-reviews signed-in  middle">
+        <!-- <button type="button" id="get-reviews" class="btn btn-secondary">View bookshelf</button> -->
+        <div id="show-reviews">
+        </div>
       </div>
     </div>
   </div>
