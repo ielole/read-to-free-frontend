@@ -79,6 +79,13 @@ const onEditReview = function(event) {
   ui.updateForm();
 };
 
+const showLibrary = () => {
+  $('.lib-books').toggle();
+  $('.view-lib-button').text(function(i, text){
+      return text === "View Library" ? "Hide Library" : "View Library";
+    });
+};
+
 const onGetReviews = function() {
   // console.log('maine house');
   api.getReviews()
@@ -104,9 +111,16 @@ const onAddReview = function(event) {
 };
 
 const onhideLibrary = function(event) {
-  console.log('hide books');
+  // console.log('hide books');
   event.preventDefault();
   ui.hideLibrary();
+};
+
+const showAddReviewForm = () => {
+  $('.add-a-review').toggle();
+  $('.show-add-review').text(function(i, text){
+      return text === "Show Review Form" ? "Close Form" : "Show Review Form";
+    });
 };
 
 const onGetBooks = function() {
@@ -115,10 +129,11 @@ const onGetBooks = function() {
     .then(ui.getBooksSuccess)
     .then(function(){
       $(".hide-library").on('click', onhideLibrary);
-      // $('.show-me-review-modal').on('click', onAddReview);
+      $('.show-add-review').on('click', showAddReviewForm);
       $(".add-a-review").on('submit', onAddReview);
     })
     .catch(ui.failure);
+    showLibrary();
 };
 
 const onhideSearch = function(event) {
@@ -141,14 +156,22 @@ const onSearchBooks = function(event) {
     .catch(ui.searchBooksFailure);
 };
 
+const showAddBookForm = () => {
+  $('.add-book-form').toggle();
+  $('.show-add-book-form').text(function(i, text){
+      return text === "Close Form" ? "Not Finding A Book You've Read? Add the Book to the Library." : "Close Form";
+    });
+};
+
 
 
 const addBookHandlers = () => {
 $("#add-a-book").on('submit', onAddBook);
 $("#get-books").on('click', onGetBooks);
 $("#get-reviews").on('click', onGetReviews);
+// $("#get-reviews").on('click', showBookshelf);
 $('#search-book-titles').on('submit', onSearchBooks);
-
+$('.show-add-book-form').on('click', showAddBookForm);
 $('.hide-books').on('click', onhideLibrary);
 // $("#add-a-review").on('submit', onAddReview);
 // $("#one-review").on('click', onGetOneReview);

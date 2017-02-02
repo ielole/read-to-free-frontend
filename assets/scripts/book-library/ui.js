@@ -17,6 +17,7 @@ const addBookSuccess = (data) => {
   $(".user-messages").html("You've added a book!");
   // console.log(data);
   $("#add-a-book").trigger("reset");
+  $(".add-book-form").hide();
   return data;
 };
 
@@ -149,11 +150,14 @@ const getOneReviewFailure = (error) => {
 };
 
 const searchBooksSuccess = (data) => {
-  // console.log("These are your search results!");
+  // console.log("These are your search results!", data.books.length);
   $(".user-messages").html("Successful Search");
   // console.log(data);
   $("#search-book-titles").trigger("reset");
   $(".search-results").html(showSearchTemplate(data));
+  if (data.books.length === 0) {
+    $(".search-results").html("No book titles match search terms.");
+  }
 };
 
 const searchBooksFailure = () => {
