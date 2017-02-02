@@ -10,6 +10,7 @@ const signUpSuccess = () => {
   // console.log("You've successfully created an account!");
   $(".user-messages").html("You've successfully created an account!");
   $("#sign-up").trigger("reset");
+  $("#sign-up").hide();
 };
 
 const signUpFailure = () => {
@@ -34,6 +35,7 @@ const signInSuccess = (data) => {
   $(".signed-out").hide();
   // $("#sign-in").hide();
   $("#sign-in").trigger("reset");
+  $("#sign-in").hide();
   };
 
 const signInFailure = () => {

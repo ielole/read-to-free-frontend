@@ -14,6 +14,10 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure);
 };
 
+const showSignUp = () => {
+  $("#sign-up").toggle();
+};
+
 const onSignIn = function (event) {
 
   let data = getFormFields(this);
@@ -24,6 +28,10 @@ const onSignIn = function (event) {
     .then(ui.signInSuccess)
     .catch(ui.signInFailure);
  };
+
+const showSignIn = () => {
+  $("#sign-in").toggle();
+};
 
 const onChangePassword = function (event) {
   let data = getFormFields(this);
@@ -42,7 +50,9 @@ const onSignOut = function (event) {
 
 const addAuthHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
+  $('.show-sign-up').on('click', showSignUp);
   $('#sign-in').on('submit', onSignIn);
+  $('.show-sign-in').on('click', showSignIn);
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
 };
